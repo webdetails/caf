@@ -5,6 +5,13 @@
 
     <target name="load.properties"
         description="Set properties for this build">
+
+		<!-- Load the properties files in the proper order -->
+		<property file="override.properties"
+		description="Properties customized for your development environment belong in this file.  This file will never be checked into the SCM." />
+		<property file="build.properties"
+		description="Properties customized for your particular project belong in this file." />
+
         <!--YUI Compressor location-->
         <property name="yui.dir" value="${basedir}/yuicompressor/yuicompressor-2.4.7.jar"/>
         <!--Source JS dir-->
