@@ -29,8 +29,8 @@ wd.caf.impl.actions.alertAction = function(spec){
         order: 100
     };
 
-      
-    var myself = wd.caf.action($.extend({},_spec,spec));
+    spec = $.extend({},_spec,spec);  
+    var myself = wd.caf.action(spec);
    
     
     /**

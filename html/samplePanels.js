@@ -101,12 +101,23 @@ wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
     key:'8'
 }) );
 
+/*
 wd.caf.registry.registerPanel( wd.caf.impl.panels.underConstruction({
     name:'contactUs',
     description: 'Contact us',
     order:"28", 
     color: "green"
 }) );
+*/
+
+wd.caf.registry.registerPanel( wd.caf.impl.panels.iframeContent({
+    name:'contactUs',
+    description: 'Contact us',
+    order:"28", 
+    url:"panelAbout.html"
+//    url:"http://www.webdetails.pt"
+}) );
+
 wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
     name:'contactUs',
     key:'9'

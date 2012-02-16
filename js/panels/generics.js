@@ -163,7 +163,7 @@ wd.caf.impl.panels.iframeContent = function(spec){
     spec = $.extend({},_spec,spec);
     var myself = wd.caf.panel(spec);
       
-      
+    
     /**
      * Describes this interface
      * @name panel.init
@@ -171,12 +171,15 @@ wd.caf.impl.panels.iframeContent = function(spec){
      */
     myself.draw = spec.draw || function($ph){
         
-        // 1 - make post
-        // 2 - replacecontent
-        $("<iframe/>").addClass("cafIframeContentPanel").attr("src",myself.getUrl());
+        var iframe = $("<iframe/>").addClass("cafIframeContentPanel");
+        
+        iframe.attr("src",myself.getUrl())
+        .load(function(){iframe.iframeAutoHeight({debug:true})})
+        .appendTo($ph);
         
     }
-      
+    
+    
       
     myself.getUrl = function(){
         return spec.url;
@@ -189,15 +192,15 @@ wd.caf.impl.panels.iframeContent = function(spec){
 
 
 /**
- * panelKeybind Keybind
- * @class
- *
- */
+* panelKeybind Keybind
+* @class
+*
+*/
 wd.caf.impl.keybinds.panelKeybind = function(spec){
     
     /**
-     * Specific specs
-     */
+ * Specific specs
+ */
     
     var _spec = {
         name: "genericPanelKeybind",
