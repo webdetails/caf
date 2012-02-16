@@ -4,22 +4,20 @@
  *  
 */
 
-.webdetailsPanelsContainerWrappper{
+.templatePanelsContainerWrappper{
 
 
 }
 
-.webdetailsPanelsContainer {
+.templatePanelsContainer {
     position: relative;
 }
 
 
 .panelContainer{
 
-    /* 
     position: absolute;
     top: 0px;
-    */
 
     width: 1150px;
     min-height: 600px;
