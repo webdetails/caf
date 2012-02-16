@@ -30,7 +30,6 @@ wd.caf.panel = function(spec) {
     var $placeholder;
     
     
-
     var myself = wd.caf.entity($.extend({},_spec,spec));
     
     

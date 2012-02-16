@@ -47,6 +47,51 @@ wd.caf.impl.panels.underConstruction = function(spec){
 
 
 /**
+ * Div content panel
+ * @class
+ *
+ */
+wd.caf.impl.panels.divContent = function(spec){
+    
+    /**
+     * Specific specs
+     */
+    
+    var _spec = {
+        name: "divContent",
+        description: "Div Content",
+        order: 50,
+        color: "cyan",
+        selector: undefined // replace me
+    };
+
+        
+    var myself = wd.caf.panel($.extend({},_spec,spec));
+      
+      
+    /**
+     * Describes this interface
+     * @name panel.init
+     * @memberof wd.caf.panel
+     */
+    myself.draw = function($ph){
+        
+        $(myself.getSelector()).detach().addClass("cafDivContentPanel").appendTo($ph);
+        
+    }
+      
+      
+    myself.getSelector = function(){
+        return spec.selector;
+    }
+
+    return myself;
+        
+};
+
+
+
+/**
  * panelKeybind Keybind
  * @class
  *

@@ -9,126 +9,34 @@
 
 /**
  * About panel
- * @class
  *
  */
-wd.caf.impl.panels.about = function(spec){
-    
-    /**
-     * Specific specs
-     */
-    
-    
-    var _spec = {
-        name: "about",
-        description: "About",
-        order: 1,
-        color: "yellow"
-    };
-
-        
-    var myself = wd.caf.panel($.extend({},_spec,spec));
-    //var myself = wd.caf.impl.panels.underConstruction($.extend({},_spec,spec))
-
-
-    /**
-     * Describes this interface
-     * @name panel.init
-     * @memberof wd.caf.panel
-     */
-    myself.draw = function($ph){
-        
-        var d = $('<div/>').addClass("underConstruction").text("Welcome to CDE2");
-        $ph.append(d);
-    }
-
-
-    return myself;
-        
-};
-
-
-wd.caf.impl.keybinds.about = function(spec){
-    
-     /**
-     * Specific specs
-     */
-    var _spec = {
-        name: "about",
-        description: "About",
-        key: "0",
-        order: 0
-    };
-
-    var myself = wd.caf.impl.keybinds.panelKeybind($.extend({},_spec,spec));
-    return myself;
-        
-};
-
-wd.caf.registry.registerPanel( wd.caf.impl.panels.about() );
-wd.caf.registry.registerKeybind( wd.caf.impl.keybinds.about() );
 
 
 
-/**
- * About panel
- * @class
- *
- */
-wd.caf.impl.panels.panels = function(spec){
-    
-    /**
-     * Specific specs
-     */
-    
-    
-    var _spec = {
-        name: "panels",
-        description: "Panels",
-        order: 1,
-        color: "blue"
-    };
-
-        
-    var myself = wd.caf.panel($.extend({},_spec,spec));
-    //var myself = wd.caf.impl.panels.underConstruction($.extend({},_spec,spec))
+wd.caf.registry.registerPanel( wd.caf.impl.panels.divContent({name:'about',description: 'About',order:"20", selector:"#about"}) );
+wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({name:'about',key:'1'}) );
 
 
-    /**
-     * Describes this interface
-     * @name panel.init
-     * @memberof wd.caf.panel
-     */
-    myself.draw = function($ph){
-        
-        var d = $('<div/>').addClass("underConstruction").text("Welcome to CDE2");
-        $ph.append(d);
-    }
+wd.caf.registry.registerPanel( wd.caf.impl.panels.underConstruction({name:'usage',description: 'Usage',order:"21"}) );
+wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({name:'usage',key:'2'}) );
 
+wd.caf.registry.registerPanel( wd.caf.impl.panels.underConstruction({name:'panels',description: 'Panels',order:"22"}) );
+wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({name:'panels',key:'3'}) );
 
-    return myself;
-        
-};
+wd.caf.registry.registerPanel( wd.caf.impl.panels.underConstruction({name:'actions',description: 'Actions',order:"23"}) );
+wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({name:'actions',key:'4'}) );
 
+wd.caf.registry.registerPanel( wd.caf.impl.panels.underConstruction({name:'notifications',description: 'Notifications',order:"24"}) );
+wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({name:'notifications',key:'5'}) );
 
-wd.caf.impl.keybinds.panels = function(spec){
-    
-     /**
-     * Specific specs
-     */
-    var _spec = {
-        name: "panels",
-        description: "Panels",
-        key: "0",
-        order: 0
-    };
+wd.caf.registry.registerPanel( wd.caf.impl.panels.underConstruction({name:'popups',description: 'Popups',order:"25"}) );
+wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({name:'popups',key:'6'}) );
 
-    var myself = wd.caf.impl.keybinds.panelKeybind($.extend({},_spec,spec));
-    return myself;
-        
-};
+wd.caf.registry.registerPanel( wd.caf.impl.panels.underConstruction({name:'templates',description: 'Templates',order:"26"}) );
+wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({name:'templates',key:'7'}) );
 
-wd.caf.registry.registerPanel( wd.caf.impl.panels.panels() );
-wd.caf.registry.registerKeybind( wd.caf.impl.keybinds.panels() );
+wd.caf.registry.registerPanel( wd.caf.impl.panels.underConstruction({name:'keybinds',description: 'Keybinds',order:"27"}) );
+wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({name:'keybinds',key:'8'}) );
 
 

@@ -56,8 +56,6 @@ wd.caf.editor = function(spec) {
     
     myself.options = $.extend({},defaults,spec);
 
-    /** Placeholder for CDE */
-    myself.$ph = $(myself.options.container); 
     
     
     function construct(){
@@ -68,6 +66,8 @@ wd.caf.editor = function(spec) {
 
     myself.init = function()  {
         
+        /** Placeholder for CDE */
+        myself.$ph = $(myself.options.container); 
         
         window.title = myself.options.name;
         
@@ -86,19 +86,18 @@ wd.caf.editor = function(spec) {
         myself.popupEngine.start();
         myself.panelEngine.start();
         myself.notificationEngine.start();
-        /*
+        
         // Bind keys
         
         myself.keybindEngine.listKeybinds().map(function(keybind){
             keybind.bind();
             
         });
-        */
+        
         
         
     };
     construct();
     return myself;
 };
-
 
