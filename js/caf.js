@@ -37,7 +37,7 @@ wd.caf.impl = wd.caf.impl || {};
  * @mixes wd.caf.modules.actionEngine
  * 
  */
-wd.caf.editor = function(spec) {
+wd.caf.application = function(spec) {
 
     var defaults = {
         
@@ -59,14 +59,14 @@ wd.caf.editor = function(spec) {
     
     
     function construct(){
-        wd.info("Initializing editor: " + myself.options.name);
+        wd.info("Initializing application: " + myself.options.name);
     };
 
 
 
     myself.init = function()  {
         
-        /** Placeholder for CDE */
+        /** Placeholder for CAF */
         myself.$ph = $(myself.options.container); 
         
         window.title = myself.options.name;

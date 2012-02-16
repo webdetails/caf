@@ -26,7 +26,8 @@ wd.caf.action = function(spec) {
         description: "override description"
     };
 
-    var myself = wd.caf.entity($.extend({},_spec,spec));
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.entity(spec);
     
     
     /**
@@ -54,7 +55,7 @@ wd.caf.action = function(spec) {
      * 
      */
     
-    myself.executeAction = function(){
+    myself.executeAction = spec.executeAction || function(){
         
         wd.debug("Generic action: " + myself.getName());
                 

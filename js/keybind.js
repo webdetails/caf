@@ -27,7 +27,8 @@ wd.caf.keybind = function(spec) {
         description: "override description"
     };
 
-    var myself = wd.caf.entity($.extend({},_spec,spec));
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.entity(spec);
     
     
     /**
@@ -75,7 +76,7 @@ wd.caf.keybind = function(spec) {
         wd.debug("Binding key " +  spec.key + " to keybind " + myself.getName());
         $(document).bind( 'keydown', spec.key , function(){
             myself.executeKeybind()
-            } );
+        } );
     }
     
 
@@ -87,7 +88,7 @@ wd.caf.keybind = function(spec) {
      * 
      */
     
-    myself.executeKeybind = function(){
+    myself.executeKeybind = spec.executeKeybind || function(){
         
         myself.log("Generic keybind: " + myself.getName());
                 

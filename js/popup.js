@@ -33,8 +33,8 @@ wd.caf.popup = function(spec) {
 
     var visible = false;
     
-
-    var myself = wd.caf.entity($.extend({},_spec,spec));
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.entity(spec);
     
     
     /**
@@ -62,7 +62,7 @@ wd.caf.popup = function(spec) {
      * @name popup.drawContent
      * @memberof wd.caf.popup
      */
-    myself.drawContent = function(){
+    myself.drawContent = spec.drawContent || function(){
 
         myself.log("Here");
 

@@ -25,7 +25,8 @@ wd.caf.template = function( spec) {
         type: "template"
     };
 
-    var myself = wd.caf.entity($.extend({},_spec,spec));
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.entity(spec);
     
     
     /**
@@ -57,7 +58,7 @@ wd.caf.template = function( spec) {
      * @memberof wd.caf.template
      * 
      */
-    myself.draw = function(){
+    myself.draw = spec.draw || function(){
         
         myself.log("Generic template draw on " + myself.caf.$ph ,"debug");
         
@@ -82,7 +83,7 @@ wd.caf.template = function( spec) {
      * @memberof wd.caf.template
      * 
      */
-    myself.createMainSections = function(){
+    myself.createMainSections = spec.createMainSections || function(){
         
         
         var wrapper = $('<div class="templateWrapper"></div>');
@@ -113,7 +114,7 @@ wd.caf.template = function( spec) {
      * @memberof wd.caf.template
      * 
      */
-    myself.addActions = function(){
+    myself.addActions = spec.addActions || function(){
         
         var actions = myself.caf.actionEngine.listActions();
         
@@ -138,7 +139,7 @@ wd.caf.template = function( spec) {
      * @memberof wd.caf.template
      * 
      */
-    myself.addPanels = function(){
+    myself.addPanels = spec.addPanels || function(){
         
         var panels = myself.caf.panelEngine.listPanels();
         
@@ -173,7 +174,7 @@ wd.caf.template = function( spec) {
      * @param Panel to draw
      */
 
-    myself.drawPanelOnContainer = function(panel){
+    myself.drawPanelOnContainer = spec.drawPanelOnContainer || function(panel){
     
     
         var container = $('<div class="panelContainer"></div>').appendTo(myself.$panelsContainer);

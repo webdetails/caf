@@ -12,13 +12,21 @@
  * @class
  *
  */
-wd.caf.impl.transitions.basicTransition = function(){
+wd.caf.impl.transitions.basicTransition = function(spec){
     
-        
-    var myself = wd.caf.transition({
+    
+    /**
+     * Specific specs
+     */
+    
+    var _spec = {
         name:"basic",
         cssFile: ["../js/transitions/transitionBasic.css"]
-    });
+    }
+
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.transition(spec);
+    
     
 
     /**
@@ -29,7 +37,7 @@ wd.caf.impl.transitions.basicTransition = function(){
      * @param panel to switch to
      */
     
-    myself.setupTransition = function(panel){
+    myself.setupTransition = spec.setupTransaction || function(panel){
 
         myself.log("Basic setup transition");
         
@@ -51,7 +59,7 @@ wd.caf.impl.transitions.basicTransition = function(){
      * @param Origin panel
      * @param Destination panel
      */
-    myself.switchPanel = function(fromPanel, toPanel){
+    myself.switchPanel = spec.switchPanel || function(fromPanel, toPanel){
 
 
         if(fromPanel){
@@ -67,19 +75,6 @@ wd.caf.impl.transitions.basicTransition = function(){
         
     }
 
-
-    
-    /**
-     * Ends panel switching event
-     * @name transitionEngine.switchToCallback
-     * @memberof wd.caf.impl.transitions.basicTransition
-     * @param Origin panel
-     * @param Destination panel
-     */    
-    myself.switchPanelCallback = function(fromPanel, toPanel){
-        
-       myself.log("switchToCallback to - not done yet","warn");
-    }
 
         
     return myself;

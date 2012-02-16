@@ -25,8 +25,9 @@ wd.caf.impl.panels.underConstruction = function(spec){
         color: "red"
     };
 
-        
-    var myself = wd.caf.panel($.extend({},_spec,spec));
+
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.panel(spec);
       
       
     /**
@@ -34,7 +35,7 @@ wd.caf.impl.panels.underConstruction = function(spec){
      * @name panel.init
      * @memberof wd.caf.panel
      */
-    myself.draw = function($ph){
+    myself.draw = spec.draw || function($ph){
         
         var d = $('<div/>').addClass("underConstruction").text("Under Construction");
         $ph.append(d);
@@ -65,8 +66,8 @@ wd.caf.impl.panels.divContent = function(spec){
         selector: undefined // replace me
     };
 
-        
-    var myself = wd.caf.panel($.extend({},_spec,spec));
+    spec = $.extend({},_spec,spec);    
+    var myself = wd.caf.panel(spec);
       
       
     /**
@@ -74,7 +75,7 @@ wd.caf.impl.panels.divContent = function(spec){
      * @name panel.init
      * @memberof wd.caf.panel
      */
-    myself.draw = function($ph){
+    myself.draw = spec.draw || function($ph){
         
         $(myself.getSelector()).detach().addClass("cafDivContentPanel").appendTo($ph);
         
@@ -83,6 +84,102 @@ wd.caf.impl.panels.divContent = function(spec){
       
     myself.getSelector = function(){
         return spec.selector;
+    }
+
+    return myself;
+        
+};
+
+
+
+/**
+ * External div content panel
+ * @class
+ *
+ */
+wd.caf.impl.panels.externalDivContent = function(spec){
+    
+    /**
+     * Specific specs
+     */
+    
+    var _spec = {
+        name: "externalDivContent",
+        description: "External Div Content",
+        order: 50,
+        color: "cyan",
+        url: undefined, // replace me
+        selector: "" // If undefined, the entire page is inserted
+    };
+
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.impl.panels.divContent(spec);
+      
+      
+    /**
+     * Describes this interface
+     * @name panel.init
+     * @memberof wd.caf.panel
+     */
+    myself.draw = spec.draw || function($ph){
+        
+        myself.log("Loading external page: " + myself.getUrl()+" " + myself.getSelector())
+        $("<div/>").addClass("cafExternalDivContentPanel").load(myself.getUrl()+" " + myself.getSelector()).appendTo($ph);
+        
+    }
+      
+   
+    myself.getUrl = function(){
+        return spec.url;
+    }
+    
+
+    return myself;
+              
+
+
+};
+
+
+/**
+ * Iframe content panel
+ * @class
+ *
+ */
+wd.caf.impl.panels.iframeContent = function(spec){
+    
+    /**
+     * Specific specs
+     */
+    
+    var _spec = {
+        name: "iframeContent",
+        description: "Iframe Content",
+        order: 50,
+        color: "cyan",
+        url: undefined // replace me
+    };
+
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.panel(spec);
+      
+      
+    /**
+     * Describes this interface
+     * @name panel.init
+     * @memberof wd.caf.panel
+     */
+    myself.draw = spec.draw || function($ph){
+        
+        // 1 - make post
+        // 2 - replacecontent
+        $("<iframe/>").addClass("cafIframeContentPanel").attr("src",myself.getUrl());
+        
+    }
+      
+      
+    myself.getUrl = function(){
+        return spec.url;
     }
 
     return myself;
@@ -108,9 +205,10 @@ wd.caf.impl.keybinds.panelKeybind = function(spec){
     };
 
 
-    var myself = wd.caf.keybind($.extend({},_spec,spec));
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.keybind(spec);
 
-    myself.executeKeybind = function(){
+    myself.executeKeybind = spec.executeKeybind || function(){
         
         myself.log("Calling execution for keybind " + myself.getName());
         myself.caf.panelEngine.getPanel(spec.name).select();

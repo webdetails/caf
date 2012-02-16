@@ -25,9 +25,9 @@ wd.caf.impl.popups.basicPopup = function(spec){
     }
 
 
-    var spec = $.extend({},_spec,spec);
+    spec = $.extend({},_spec,spec);
     var options  = $.extend({},_options,options);
-    var myself = wd.caf.popup($.extend({},_spec,spec));
+    var myself = wd.caf.popup(spec);
     
     
     var $topContainer, $centerContainer, $bottomContainer;
@@ -39,7 +39,7 @@ wd.caf.impl.popups.basicPopup = function(spec){
      * @memberof wd.caf.impl.popups.basicPopup
      * @param Object to control this popups' behavior. eg: {content: "Test",buttons:[...]}
      */
-    myself.show = function(options){
+    myself.show = spec.show || function(options){
         
         options = $.extend({},_options,options);
         
@@ -54,7 +54,7 @@ wd.caf.impl.popups.basicPopup = function(spec){
      * @memberof wd.caf.impl.popups.basicPopup
      * @param Object to control this popups' behavior
      */
-    myself.drawContent = function(options){
+    myself.drawContent = spec.drawContent || function(options){
 
         // Write: topPoup, contentPopup, bottomPopup
         
@@ -74,7 +74,7 @@ wd.caf.impl.popups.basicPopup = function(spec){
      * @name basicPopup.drawTopContent
      * @memberof wd.caf.impl.popups.basicPopup
      */
-    myself.drawTopContent = function(options){
+    myself.drawTopContent = spec.drawTopContent || function(options){
         return options.header;
     }
     
@@ -85,7 +85,7 @@ wd.caf.impl.popups.basicPopup = function(spec){
      * @name basicPopup.drawTopContent
      * @memberof wd.caf.impl.popups.basicPopup
      */
-    myself.drawCenterContent = function(options){
+    myself.drawCenterContent = spec.drawCenterContent || function(options){
         if(typeof options.content === "function"){
             // Call content function passing the current content
             return options.content(myself,options);
@@ -100,7 +100,7 @@ wd.caf.impl.popups.basicPopup = function(spec){
      * @name basicPopup.drawTopContent
      * @memberof wd.caf.impl.popups.basicPopup
      */
-    myself.drawBottomContent = function(options){
+    myself.drawBottomContent = spec.drawBottomContent || function(options){
     
         var buttons = options.buttons;
         if($.isArray(buttons)){
@@ -148,7 +148,7 @@ wd.caf.impl.popups.basicPopup = function(spec){
     
     }
     
-    myself.validate = function(options, $ph){
+    myself.validate = spec.validate || function(options, $ph){
         
         myself.log("Popup validation function");
         
@@ -230,7 +230,7 @@ wd.caf.impl.popups.closePopup = function(spec){
 
     spec = $.extend({},_spec,spec);
     var options  = $.extend({},_options,options);
-    var myself = wd.caf.impl.popups.basicPopup($.extend({},_spec,spec));
+    var myself = wd.caf.impl.popups.basicPopup(spec);
     
     
     /**
@@ -239,7 +239,7 @@ wd.caf.impl.popups.closePopup = function(spec){
      * @memberof wd.caf.impl.popups.basicPopup
      * @param Object to control this popups' behavior. eg: {content: "Test",buttons:[...]}
      */
-    myself.show = function(options){
+    myself.show = spec.show || function(options){
         
         options = $.extend({},_options,options);
         
@@ -304,7 +304,7 @@ wd.caf.impl.popups.okcancelPopup = function(spec){
 
     spec = $.extend({},_spec,spec);
     var options  = $.extend({},_options,options);
-    var myself = wd.caf.impl.popups.basicPopup($.extend({},_spec,spec));
+    var myself = wd.caf.impl.popups.basicPopup(spec);
     
     
     /**
@@ -313,7 +313,7 @@ wd.caf.impl.popups.okcancelPopup = function(spec){
      * @memberof wd.caf.impl.popups.basicPopup
      * @param Object to control this popups' behavior. eg: {content: "Test",buttons:[...]}
      */
-    myself.show = function(options){
+    myself.show = spec.show || function(options){
         
         options = $.extend({},_options,options);
         

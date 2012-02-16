@@ -26,7 +26,8 @@ wd.caf.notification = function(spec) {
         description: "override description"
     };
 
-    var myself = wd.caf.entity($.extend({},_spec,spec));
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.entity(spec);
     
     
     /**
@@ -62,7 +63,7 @@ wd.caf.notification = function(spec) {
      * 
      */
     
-    myself.notify = function(msg, level){
+    myself.notify = spec.notify || function(msg, level){
         
         wd.warn("Generic notification, override me: " + msg);
                 

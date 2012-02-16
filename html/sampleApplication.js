@@ -15,7 +15,7 @@
 // Register my specific panels
             
             
-var application = wd.caf.editor({
+var application = wd.caf.application({
     name: 'Community Application Framework', 
     container:"#caf", 
     template:'default', 

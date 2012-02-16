@@ -24,7 +24,8 @@ wd.caf.transition = function( spec) {
         type: "transition"
     };
 
-    var myself = wd.caf.entity($.extend({},_spec,spec));
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.entity(spec);
     
     
     /**
@@ -51,7 +52,7 @@ wd.caf.transition = function( spec) {
      * @param panel to switch to
      */
     
-    myself.setupTransition = function(panel){
+    myself.setupTransition = spec.setupTransition || function(panel){
         
         myself.log("generic setupTransition");
                 
@@ -66,7 +67,7 @@ wd.caf.transition = function( spec) {
      * @param Origin panel
      * @param Destination panel
      */
-    myself.switchPanel = function(fromPanel, toPanel){
+    myself.switchPanel = spec.switchPanel || function(fromPanel, toPanel){
         
         myself.log("beginPanelSwitch to - not done yet","warn");
     }

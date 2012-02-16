@@ -12,14 +12,21 @@
  * @class
  *
  */
-wd.caf.impl.templates.defaultTemplate = function(){
+wd.caf.impl.templates.defaultTemplate = function(spec){
     
-        
-    var myself = wd.caf.template({
+    
+    /**
+     * Specific specs
+     */
+    
+    var _spec = {
         name:"default",
         cssFile: ["../js/templates/templateDefault.css"]
-    });
+    }
 
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.template(spec);
+        
         
     return myself;
         

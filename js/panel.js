@@ -29,13 +29,13 @@ wd.caf.panel = function(spec) {
     /* private stuff*/
     var $placeholder;
     
-    
-    var myself = wd.caf.entity($.extend({},_spec,spec));
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.entity(spec);
     
     
     /**
      * Describes this interface
-     * @name panel.init
+     * @name panel.getOverrides
      * @memberof wd.caf.panel
      */
     myself.getOverrides = function(){
@@ -52,7 +52,7 @@ wd.caf.panel = function(spec) {
     
     /**
      * Returns the color of this panel
-     * @name panel.init
+     * @name panel.getColor
      * @memberof wd.caf.panel
      */
     myself.getColor = function(){
@@ -67,7 +67,7 @@ wd.caf.panel = function(spec) {
      * @name panel.draw
      * @memberof wd.caf.panel
      */
-    myself.draw = function($ph){
+    myself.draw = spec.draw || function($ph){
         myself.log("Panel draw action","warn");
         $ph.append(myself.getName());
     }

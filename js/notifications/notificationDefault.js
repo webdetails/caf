@@ -12,13 +12,21 @@
  * @class
  *
  */
-wd.caf.impl.notifications.defaultNotification = function(){
+wd.caf.impl.notifications.defaultNotification = function(spec){
     
-        
-    var myself = wd.caf.notification({
+    
+    /**
+     * Specific specs
+     */
+    
+    var _spec = {
         name:"default",
         cssFile: ["../js/notifications/notificationDefault.css"]
-    });
+    }
+
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.notification(spec);
+    
     
     var notificationDiv;
     
@@ -31,7 +39,7 @@ wd.caf.impl.notifications.defaultNotification = function(){
      *
      */
     
-    myself.setupNotification = function(){
+    myself.setupNotification = spec.setupNotification || function(){
 
         myself.log("Default setup notification");
      
@@ -42,7 +50,7 @@ wd.caf.impl.notifications.defaultNotification = function(){
     }
     
     
-    myself.notify = function(msg, level){
+    myself.notify = spec.notify || function(msg, level){
         
         level = level || "info"
         
