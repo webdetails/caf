@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="CAF" default="prod" basedir=".">
+
+    <description>CAF - Community Application Framework</description>
+
+    <target name="load.properties"
+        description="Set properties for this build">
+        <!--YUI Compressor location-->
+        <property name="yui.dir" value="${basedir}/yuicompressor/yuicompressor-2.4.7.jar"/>
+        <!--Source JS dir-->
+        <property name="src.js.dir" value="${basedir}/js"/>
+        <!--Source CSS dir-->
+        <property name="src.css.dir" value="${basedir}/css"/>
+        <!--Source Lint/Hint dir-->
+        <property name="jslint.js" value="${basedir}/lint/jshint.js"/>
+        <!--Rhino dir-->
+        <property name="js.jar" value="${basedir}/lint/rhino/js.jar"/>
+        <!--Output dir-->
+        <property name="build.dir" value="build"/>
+        <property name="dist.dir" value="dist"/>
+        <!--Build version information -->
+        <property name="app.name" value="caf"/>
+        <property name="build.major" value="1"/>
+        <property name="build.minor" value="0"/>
+
+		<!-- Output file name -->
+        <property name="file.name" value="${app.name}-${build.major}.${build.minor}"/>
+    </target>
+
+
+    <!-- Clean -->
+    <target name="clean" depends="load.properties" description="Cleans the project's build and dist">
+        
+        <!--Delete previous build files-->
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+        
+    
+    </target>
+
+    <!--Create build directories-->
+    <target name="init" depends="load.properties,clean"
+        description="Create build directory structure">
+        <!--Create the time stamp for the new build-->
+        <tstamp>
+            <format property="TODAY" pattern="EEE, d MMM yyyy HH:mm:ss Z"/>
+        </tstamp>
+        
+        <!--Recreate the build directories-->
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${build.dir}/js"/>
+        <mkdir dir="${build.dir}/css"/>
+
+        <mkdir dir="${dist.dir}"/>
+        
+        <!--Log the build timestamps to file-->
+        <echo file="${build.dir}/js/tstamp.txt" append="false">Build Date: ${TODAY}</echo>
+        <echo file="${build.dir}/css/tstamp.txt" append="false">Build Date: ${TODAY}</echo>
+    </target>
+
+
+	 <!--JS Lint-->
+    <target depends="init" name="js.lint">
+        <pathconvert pathsep=" " property="jsfiles">
+            <fileset dir="${src.js.dir}">
+                <include name="**/*.js"/>
+            </fileset>
+        </pathconvert>
+        <exec dir="${build.dir}/js/" executable="echo" failonerror="true">
+            <arg line="-jar ${js.jar} ${jslint.js} ${jsfiles}"/>
+        </exec>
+        <echo>Finished</echo>
+    </target>
+	
+	
+    <!--Concatenate JS files-->
+    <target name="js.concatenate"  depends="js.lint"
+        description="Concatenates specified JavaScript files">
+        <concat destfile="${build.dir}/js/${file.name}.js">
+            <!-- Some files need to go first -->
+            <filelist dir="${src.js.dir}">
+                <file name="wd.js"/>
+                <file name="caf.js"/>
+                <file name="registry.js"/>
+                <file name="entity.js"/>
+                  
+            </filelist>
+                
+            <fileset dir="${src.js.dir}">
+                <include name="**/*.js"/>
+                <exclude name="wd.js"/>
+                <exclude name="caf.js"/>
+                <exclude name="registry.js"/>
+                <exclude name="entity.js"/>
+            </fileset>
+        </concat>
+        <echo>Finished</echo>
+    </target>
+
+	    
+    
+    <!--Concatenate CSS files-->
+    <target name="css.concatenate" depends="init" 
+        description="Concatenates specified CSS files">
+        <concat destfile="${build.dir}/css/${file.name}.css">
+            <!--first.css and second.css should be first in the concatenated file-->
+            <filelist 
+                dir="${src.css.dir}" 
+                files="first.css, second.css"/>
+            <!--All of the other files in the directory should appear after.-->
+            <fileset 
+                dir="${src.css.dir}"
+                includes="**/*.css" 
+                excludes="first.css, second.css"/>
+        </concat>
+        <echo>Finished</echo>
+    </target>
+
+
+
+    <!--Minify JS files-->
+    <target name="js.minify" depends="js.concatenate" 
+        description="Minifies JavaScript files">
+        <apply executable="java" parallel="false" dest="${build.dir}/js">
+            <fileset 
+                dir="${build.dir}/js" 
+                includes="${file.name}.js"/>
+            <arg line="-jar"/>
+            <arg path="${yui.dir}"/>
+            <srcfile/>
+            <arg line="-o"/>
+            <mapper type="glob" from="*.js" to="*-min.js"/>
+            <targetfile/>
+        </apply>
+        <echo>Finished</echo>
+    </target>
+
+
+
+    <!--Minify CSS files-->
+    <target name="css.minify" depends="css.concatenate" 
+        description="Minifies CSS files">
+        <apply executable="java" parallel="false"  dest="${build.dir}/css">
+            <fileset 
+                dir="${build.dir}/css" 
+                includes="${file.name}.css"/>
+            <arg line="-jar"/>
+            <arg path="${yui.dir}"/>
+            <arg line="--line-break 0"/>
+            <srcfile/>
+            <arg line="-o"/>
+            <mapper type="glob" from="*.css" to="*-min.css"/>
+            <targetfile/>
+        </apply>
+        <echo>Finished</echo>
+    </target>
+
+
+    <!--Build-->
+    <target name="prod" 
+        description="Builds project files for production use"
+        depends="
+            load.properties, 
+            init, 
+            js.concatenate,
+            js.lint, 
+            css.concatenate, 
+            js.minify, 
+            css.minify">
+
+        <copy todir="${dist.dir}" flatten="true">
+            <fileset dir="${build.dir}">
+                <include name="**/${file.name}*"/>
+            </fileset>
+        </copy>
+
+    </target>
+</project>
+

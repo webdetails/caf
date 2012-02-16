@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Webdetails CAF Sample</title>
+        <link rel="shortcut icon" href="../images/favicon.ico" />
+        
+
+        <!-- Blueprint CSS -->
+        <link rel="stylesheet" href="../lib/css/blueprint/screen.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="../lib/css/blueprint/print.css" type="text/css" media="print">
+        <!--[if lt IE 8]><link rel="stylesheet" href="../lib/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+
+        <!-- Libs -->
+        <script src="../lib/js/jquery.js"></script>
+        <script src="../lib/js/jquery.hotkeys.js"></script>
+        <script src="../lib/js/modernizr.js"></script>
+        <link rel="stylesheet" href="../lib/css/borderBox.css" type="text/css">
+        <link rel="stylesheet" href="../js/panels/generics.css" type="text/css">
+
+        <!-- CAF -->
+        <link rel="stylesheet" type="text/css" href="../css/caf.css" />
+
+        <script src="../js/wd.js"></script>
+        <script src="../js/caf.js"></script>
+        <script src="../js/registry.js"></script>
+        <script src="../js/entity.js"></script>
+        <script src="../js/template.js"></script>
+        <script src="../js/transition.js"></script>
+        <script src="../js/action.js"></script>
+        <script src="../js/keybind.js"></script>
+        <script src="../js/panel.js"></script>
+        <script src="../js/popup.js"></script>
+        <script src="../js/notification.js"></script>
+        <script src="../js/actionEngine.js"></script>
+        <script src="../js/keybindEngine.js"></script>
+        <script src="../js/templateEngine.js"></script>
+        <script src="../js/transitionEngine.js"></script>
+        <script src="../js/popupEngine.js"></script>
+        <script src="../js/panelEngine.js"></script>
+        <script src="../js/notificationEngine.js"></script>
+        <script src="../js/templates/templateDefault.js"></script>
+        <script src="../js/transitions/transitionBasic.js"></script>
+        <script src="../js/transitions/transitionSlide.js"></script>
+        <script src="../js/notifications/notificationDefault.js"></script>
+        <script src="../js/panels/generics.js"></script>
+        <script src="../js/popups/basePopups.js"></script>
+
+        
+        
+        <!-- Sample and documentation -->
+        
+        <script src="about.js"></script>
+        <script src="sampleActions.js"></script>
+
+
+        <!--        <link rel="stylesheet" href="../js/templates/templateWebdetails.css" type="text/css">-->
+        <!--        <link rel="stylesheet" href="../js/transitions/transitionBasic.css" type="text/css">-->
+
+
+    </head>
+    <body>
+
+        <div id="caf"></div>
+
+        <script>
+            
+            var application = wd.caf.editor({
+                name: 'Community Application Framework', 
+                container:"#caf", 
+                template:'default', 
+                transition: "basic"
+            });
+            application.init();
+            
+        </script>
+
+        <!--div class="test" style="background-color: yellow; height: 100px;">&nbsp</div>
+
+        <div class="webdetailsPanelsContainer">
+            <div class="panelContainer">
+                <div class="webdetailsPanelContainerLeft">Left</div>
+                <div class="webdetailsPanelContainerCenter">Center</div>
+                <div class="webdetailsPanelContainerRight">Right</div>
+            </div>
+            <div class="panelContainer">
+                <div class="webdetailsPanelContainerLeft">Esquerda</div>
+                <div class="webdetailsPanelContainerCenter">Centro</div>
+                <div class="webdetailsPanelContainerRight">Direita</div>
+            </div>
+            <div class="panelContainer">EFGH</div>
+            <div class="panelContainer">IJKL</div>
+            <div class="panelContainer">MNOP</div>
+        </div-->
+
+
+    </body>
+</html>

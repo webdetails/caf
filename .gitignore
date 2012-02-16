@@ -1,0 +1,19 @@
+# Subfloor Folders #
+####################
+bin
+dist
+/build
+/lib
+/test-lib
+/dev-lib
+override.properties
+
+# General Annoyances #
+
+.DS_Store
+*~
+*tmp
+
+# Custom stuff
+/nbproject/private
+/docs

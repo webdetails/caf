@@ -1,0 +1,41 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. 
+ *  
+*/
+
+.webdetailsPanelsContainerWrappper{
+
+
+}
+
+.webdetailsPanelsContainer {
+    position: relative;
+}
+
+
+.panelContainer{
+
+    /* 
+    position: absolute;
+    top: 0px;
+    */
+
+    width: 1150px;
+    min-height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    -webkit-transition: all 500ms ease-in;
+    -moz-transition: all 500ms ease-in;
+    -o-transition: all 500ms ease-in;
+    transition: all 500ms ease-in;
+
+}
+
+.basicTransitionHidden{
+
+    opacity:0;
+
+}

@@ -1,0 +1,210 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. 
+ *  
+*/
+
+body {
+
+    margin-top:20px;
+    background-color:#e0e8ec; 
+    min-height:900px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+
+.templateHead{
+    width: 1150px;
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: green;*/
+    overflow: hidden;
+    clear: both;
+}
+
+
+
+/*.templateHead > div{
+    display: inline-block;
+    position: relative;
+    line-height: 32px;
+    vertical-align: middle;
+    bottom: 0px;
+    float: left;
+}
+*/
+
+.templateLogo{
+    margin-left: 50px;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    background: url('images/webdetails.png');
+    float: left;
+}
+
+.templateTitle{
+    font-size:  22px;
+    margin-left: 5px;
+    margin-right: 20px;
+    font-family: Gudea;
+
+}
+
+.templateHead div.cafLinks{
+
+    line-height: 25px;
+    color: #999;
+    font-size:10px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+
+    padding-top: 7px;
+    padding-right: 10px;
+    padding-left: 10px;
+
+    -webkit-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+}
+
+.templateHead div.cafLinks:hover{
+
+    color: #393e3e;
+
+}
+
+
+.templateHead > div.templateActions{
+
+
+}
+
+
+.templateHead > div.templatePanels{
+
+    float: right;
+    margin-right: 50px
+}
+
+.templatePanelsContainer {
+
+    width: 1150px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+/* Panel implmementation */
+
+.panelTitle{
+
+    height: 100px;
+    font-size: 60px;
+    color: white;
+    padding-left: 50px;
+
+}
+
+
+.panelContainer{
+
+    width: 1150px;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.panelContainer > div{
+    /*display: inline-block;
+    float: left;*/
+}
+
+/* Popups */
+
+
+div.cafPopupContent{
+    background-color:#e0e8ec; 
+
+}
+
+.helpHeader{
+
+    font-size:28px; 
+    color:#2c3030; 
+    letter-spacing:-1px; 
+    margin-left:0px; 
+    border-bottom: 1px dotted #666; 
+    padding-bottom:10px;  
+    margin-top:20px; 
+    margin-bottom:5px; 
+
+}
+
+.helpContent{
+
+
+}
+
+
+dl {
+}
+dt {
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+    color: rgb(153, 153, 153);
+}
+dt:after {
+    content: ":\0000a0";
+}
+dd {
+    margin: 0 0 0 110px;
+    padding: 0 0 0.5em 0;
+}
+
+
+
+/* Popups */
+
+.dummyFileOperationsList{
+    list-style: none;  
+
+}
+
+.dummyFileOperationsList > li{
+
+
+    -webkit-transition: background-color 200ms ease-in;
+    -moz-transition: background-color 200ms ease-in;
+    -o-transition: background-color 200ms ease-in;
+    transition: background-color 200ms ease-in;
+
+    display: block;
+    text-align: center;
+    min-width: 60px;
+    border: 1px solid #666;
+    padding: 4px 8px;
+    margin: 10px;
+}
+
+
+
+.dummyFileOperationsList > li:hover{
+    background-color: white;
+    cursor: pointer;
+}
+
+.dummyFileOperationsList > li:active{
+    border: 1px solid white;
+}
+
+.dummyFileOperationsListSelected{
+    background-color: white;
+    cursor: pointer;
+}
