@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+   - You can obtain one at http://mozilla.org/MPL/2.0/.  -->
+<html>
+    <head>
+    </head>
+    <body>
+
+        <div id="panels">
+
+    
+            <h1> Create a new panel </h1>
+            
+            <p> Building a custom panel class is easily done by extending another panel class, particularly the wf.caf.panel base class. 
+                Things to take into account when extending a panel include:</p>
+            
+            <dl>
+                <dt>new specs</dt><dd>Redefinition of the specs of the parent panel class and addition of new ones.</dd>
+                <dt>parent class</dt><dd>The panel class to extend.</dd>
+                <dt>draw($ph)</dt><dd>The function that handles how the panel is rendered. 
+                    It can be passed to the base panel constructor as a member of the specs.
+                    $ph is the placeholder where the panel will be drawn.</dd>
+            </dl>
+      
+            <h1> Two ways to do it</h1>
+
+            <h2>Complete syntax <span>[create a new panel constructor]</span></h2>
+            
+            <blockquote>
+                <pre>
+wd.caf.impl.panels.samplePanel = function(spec){
+    
+    /**
+     * Specific specs
+     */
+    
+    var _spec = {
+        name: "samplePanel",
+        description: "Sample Panel",
+        order: 50,
+        color: "cyan"
+    };
+
+    spec = $.extend({},_spec,spec);    
+    var myself = wd.caf.panel(spec);
+      
+      
+    myself.draw = spec.draw || function($ph){ 
+        $('&lt;div/&gt;').addClass("samplePanel").text("samplePanel").appendTo($ph); 
+    }
+
+    return myself;
+        
+};
+                </pre>
+            </blockquote>
+            
+            <p> Register the panel: </p>
+            
+            <blockquote>
+                <pre>
+wd.caf.registry.registerPanel( wd.caf.impl.panels.samplePanel() );
+                </pre>
+            </blockquote>
+            
+            <h2>Simpler syntax <span>[pass options to an existing panel constructor and register directly]</span></h2>
+
+            <blockquote>
+                <pre>
+wd.caf.registry.registerPanel( wd.caf.panel({
+    name:'samplePanel',
+    description: 'Sample Panel',
+    order:"42", 
+    draw:  function($ph) {
+                $('&lt;div/&gt;').addClass("samplePanel").text("samplePanel").appendTo($ph);
+           }
+}) );
+                </pre>
+            </blockquote>
+            
+
+            
+            <h1> Implemented Panels </h1>
+            
+                <h2>Div Content</h2>
+                <dl>
+                    <dt>class</dt><dd> wf.caf.impl.panels.divContent </dd>
+                <dt>description</dt><dd> Takes a DOM element identified by a jquery selector and appends it to the panel container.</dd>
+                <dt>extends</dt><dd>wf.caf.panel </dd>
+                <dt>additional specs</dt><dd>selector: jquery selector for the target element.</dd>
+                </dl>
+                
+                <h2>External Div Content</h2>
+                <dl>
+                <dt>class</dt><dd> wf.caf.impl.panels.externalDivContent</dd>
+                <dt>description</dt><dd> Takes a DOM element identified by a jquery selector, from a given url, and appends it to the panel container. If no selector is provided, it fetches the full html content of the provided url.</dd>
+                <dt>extends</dt><dd>wf.caf.impl.panels.divContent </dd>
+                <dt>additional specs</dt><dd>selector: jquery selector for the target element. url: target url.</dd>
+                </dl>
+                
+                <h2>iframe Content</h2>
+                <dl>
+                <dt>class</dt><dd> wf.caf.impl.panels.iframeContent</dd>
+                <dt>description</dt><dd> Creates and iframe with a given url as embbeded content and appends it to the panel container.</dd>
+                <dt>extends</dt><dd>wf.caf.panel </dd>
+                <dt>additional specs</dt><dd> Additional specs: url: target url.</dd>
+                </dl>
+                    
+                <h2>Under Construction</h2>
+                <dl>
+                <dt>class</dt><dd> wf.caf.impl.pfaCreatesandnels.underConstruction</dd>
+                <dt>description</dt><dd> Appends a div with the words "Under construction" to the panel container.</dd>
+                <dt>extends</dt><dd>wf.caf.panel </dd>
+                <dt>aditional specs</dt><dd>none</dd>
+                </dl>
+            
+            
+            
+        </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+   - You can obtain one at http://mozilla.org/MPL/2.0/.  -->
+<html>
+    <head>
+    </head>
+    <body>
+
+        <div id="popups">
+
+    
+            <h1> Create a new popup </h1>
+            
+            <p> TODO: Need to come up with something to say that's not exactly a copy and paste of the other panels.</p>
+            
+            <dl>
+                <dt>new specs</dt><dd>Redefinition of the specs of the parent popup class and addition of new ones.</dd>
+                <dt>parent class</dt><dd>The notification class to extend.</dd>
+                <dt>drawContent( )</dt><dd>TODO: put stuff here.</dd>
+                <dt>show(options)</dt><dd>TODO: put stuff here </dd>
+                <dt>hide( )</dt><dd>TODO: put stuff here.</dd>
+
+
+            </dl>
+
+
+            
+            <h1> Implemented Popups </h1>
+            
+                         
+                <h2> Basic Popup</h2>
+                <dl>
+                    <dt>class</dt><dd> wd.caf.impl.popups.basicPopup </dd>
+                <dt>description</dt><dd>Implements a basic popup with top, center and bottom areas and button validation handlers.</dd>
+                <dt>extends</dt><dd>wf.caf.popup </dd>
+                <dt>additional specs</dt><dd>drawTopContent:, drawCenterContent:, drawBottomContent:, validate:, </dd>
+                </dl>
+                
+                <h2> Close Popup</h2>
+                <dl>
+                    <dt>class</dt><dd> wd.caf.impl.popups.closePopup </dd>
+                <dt>description</dt><dd> Implements an close popup which just displays information and a close button.</dd>
+                <dt>extends</dt><dd>wd.caf.impl.popups.basicPopup </dd>
+                <dt>additional specs</dt><dd> ...</dd>
+                </dl>
+                
+                <h2> Ok/Cancel Popup</h2>
+                <dl>
+                    <dt>class</dt><dd> wd.caf.impl.popups.okcancelPopup </dd>
+                <dt>description</dt><dd>Implements an OK/Cancel popup with two buttons. </dd>
+                <dt>extends</dt><dd>wd.caf.impl.popups.basicPopup </dd>
+                <dt>additional specs</dt><dd>... </dd>
+                </dl>
+            
+            
+            
+        </div>
+
+
+    </body>
+</html>

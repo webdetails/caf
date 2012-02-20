@@ -27,3 +27,9 @@ $(function(){
     application.init();
                 
 });
+
+/*$(function (){
+    
+  application.notificationEngine.getNotification().warn("Don't forget to explain the interface when I talk about functions.");
+});*/
+
