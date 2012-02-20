@@ -6,116 +6,106 @@
 
 /* Begin Style Guide */
 
-
-.cafPopup
-{
-    display: none;
-    position: absolute;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    top: 0px; left: 0px;
-    z-index: 9995;
-
-    -webkit-transition: opacity 500ms ease-in;
-    -moz-transition: opacity 500ms ease-in;
-    -o-transition: opacity 500ms ease-in;
-    transition: opacity 500ms ease-in;
+@font-face {
+    font-family: 'Gudea';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Gudea'), url('http://themes.googleusercontent.com/static/fonts/gudea/v1/kfCeUiT0HGXHQC8YVeaKy6CWcynf_cDxXwCLxiixG1c.woff') format('woff');
+}
+@font-face {
+    font-family: 'Gudea';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Gudea Italic'), local('Gudea-Italic'), url('http://themes.googleusercontent.com/static/fonts/gudea/v1/tZZo84E1pZ1XbFCB5vu4pwLUuEpTyoUstqEm5AMlJo4.woff') format('woff');
+}
+@font-face {
+    font-family: 'Gudea';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Gudea Bold'), local('Gudea-Bold'), url('http://themes.googleusercontent.com/static/fonts/gudea/v1/6M2RKly85u67vSsXH0-zqnYhjbSpvc47ee6xR_80Hnw.woff') format('woff');
 }
 
 
-.cafPopupVisible{
-    opacity: 1;
+
+body{
+    
+}
+
+p, div, dt, dd, dl {
+    font-family: "Gudea", sans-serif;
+}
+
+.panelContainer blockquote{
+    border-left: 3px solid #CCCCCC;
+    font-family: 'Courier New',Courier,monospace;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding-left: 5px;
+    
 }
 
 
-.cafPopupBackground
-{
-    width: 100%; height: 100%; 
-    background-color: rgba(0,0,0,0.4);
-    top: 0px; 
-    left: 0px;
-    text-align: center;
+.panelContainer h1{
+    color: #95A9B3;
+    float: left;
+    font-family: 'Gudea',sans-serif;
+    font-size: 35px;
+    height: auto;
+    letter-spacing: -1px;
+    line-height: 110%;
+    text-decoration: none;
+    z-index: 20;
+    display:block;
+    width:100%;
 }
 
-.cafPopupContent
-{
-    /*    position: relative;*/
-    display: inline-block;
+.panelContainer h2{
+     font-size: 20px;
+    line-height: 150%;
+    color: #22494F;
+    font-family: 'Gudea',sans-serif;
+    letter-spacing: 0;
+    text-decoration: none;
+}
+
+.panelContainer h2 span {
+    font-size:12px;
+    
+}
+
+.panelContainer{
+    font-family: 'Gudea',sans-serif;
+    font-size:13px;
+    color: #22494F;
+    text-decoration: none;
+}
+
+/*.panelContainer .panelTitle {
+    background:#06272C;
+    color: #B6C8D1;
+    display: block;
+    font-family: 'Gudea',sans-serif;
+    font-size: 35px;
+    height: 100px;
+    letter-spacing: -1px;
+    line-height: 110%;
+    text-decoration: none;
+}*/
+
+
+.panelContainer dl {
+    width:550px;
+}
+.panelContainer dl dt {
+    color:#22494F;
+    width:100%;
     text-align: left;
-    min-height: 450px;
-    min-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    border: 1px solid rgba(50,50,50,0.4);;
-    padding: 10px;
-
-
+}
+.panelContainer dl dd {
+    margin-left:10px;
 }
 
-
-.cafBasicPopupCenterContainer{
-    min-height: 370px;
-
+.panelContainer p {
+    width:600px;
 }
-
-
-.cafBasicPopupTopContainer{
-
-    font-size:28px; 
-    color:#2c3030; 
-    letter-spacing:-1px; 
-    margin-left:0px; 
-    border-bottom: 1px dotted #666; 
-    padding-bottom:10px;  
-    margin-bottom:5px; 
-
-}
-
-
-.cafPopupBottomContent{
-
-    width: 100%;
-    border-top: 1px dotted white; 
-    padding-top:10px;  
-    margin-top:5px; 
-    overflow: hidden;
-}
-
-.cafBasicPopupButton{
-
-    -webkit-transition: all 200ms ease-in;
-    -moz-transition: all 200ms ease-in;
-    -o-transition: all 200ms ease-in;
-    transition: all 200ms ease-in;
-
-    display: inline-block;
-    float: right;
-    text-align: center;
-    min-width: 60px;
-    border: 1px solid #666;
-    padding: 4px 8px;
-    margin: 2px;
-}
-
-
-.cafBasicPopupButton:hover{
-    background-color: white;
-    cursor: pointer;
-}
-
-.cafBasicPopupButton:active{
-    border: 1px solid white;
-}
-
-.cafBasicPopupButton.cafBasicPopupNonValidated,
-.cafBasicPopupButton.cafBasicPopupNonValidated:hover,
-.cafBasicPopupButton.cafBasicPopupNonValidated:active
-{
-    background-color: inherit;
-    border: 1px solid #666;
-    color: #999;
-    cursor: default
-}
-
