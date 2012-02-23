@@ -27,7 +27,7 @@ wd.caf.modules.templateEngine =  function(myself, spec) {
 
     impl.start = function(){
             
-        template = wd.caf.registry.getTemplate(myself.options.template);
+        template = myself.getRegistry().getTemplate(myself.options.template);
         if(!template){
             wd.log( "Template '" + myself.options.template +"' not found. Can't continue"  ,"exception");
             throw exception /* TODO: How to best throw exceptions? */

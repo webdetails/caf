@@ -46,7 +46,7 @@ wd.caf.modules.panelEngine =  function(myself, spec) {
         
         if(!panels){
             // init panels
-            panels = wd.caf.registry.listPanels().map(function(panel){
+            panels = myself.getRegistry().listPanels().map(function(panel){
                 panel.init(myself);
                 return panel;
             });
@@ -62,7 +62,7 @@ wd.caf.modules.panelEngine =  function(myself, spec) {
      */
     impl.getPanel = function(name){
         
-        return wd.caf.registry.getPanel(name);
+        return myself.getRegistry().getPanel(name);
                 
     }
 

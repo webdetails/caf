@@ -57,7 +57,7 @@ wd.caf.impl.actions.sampleAction = function(spec){
             
             <blockquote>
                 <pre>
-wd.caf.registry.registerAction(wd.caf.impl.actions.sampleAction() );    
+application.getRegistry().registerAction(wd.caf.impl.actions.sampleAction() );    
                 </pre>
             </blockquote>
             
@@ -65,7 +65,7 @@ wd.caf.registry.registerAction(wd.caf.impl.actions.sampleAction() );
 
             <blockquote>
                 <pre>
-wd.caf.registry.registerAction( wd.caf.action({
+application.getRegistry().registerAction( wd.caf.action({
     name: "sampleAction",
     description: "Sample notification action",
     order: 105,

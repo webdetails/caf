@@ -8,12 +8,28 @@
     <body>
 
         <div id="usage">
+            
+            <h1>Creating the application</h1>
+            <p>A CAF application is created by calling the wd.caf.application constructor. 
+               The specs for a new application include the name, the html container where the application will run,
+               the template and the type of transition between panels. </p>
+            
+            <blockquote>
+                <pre>
+var application = wd.caf.application({
+    name: 'Community Application Framework', 
+    container:"#caf", 
+    template:'default', 
+    transition: "basic"
+});
+                </pre>
+            </blockquote>
 
             <h1>Elements</h1>
             <p>All CAF elements extend the same base class and share the same syntax for creation.
                 TODO:</p>
             
-            <p>Luckily, CAF already implements default classes for most of the elements and a 
+            <p>Luckily, CAF already implements default classes for most of the UI elements and a 
                CAF application comes with those default elements registered. The exceptions are panels
                and actions, since they directly affect the layout. So, to create a new CAF application the first step is to 
                register panels and actions.</p>
@@ -21,11 +37,11 @@
             
             <h2>Panels</h2>
             <p>These sample panels are built using the pre-defined externalDivContent panel class, 
-               which takes a div from a given url and uses it as content for the registered panels. </p>
+               which takes a DOM element from a given url and uses it as content for the registered panels. </p>
             
             <blockquote>
                 <pre>
-wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
+application.getRegistry().registerPanel( wd.caf.impl.panels.externalDivContent({
     name:'about',
     description: 'About',
     order:"20", 
@@ -34,7 +50,7 @@ wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
 }) );
 
 
-wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
+application.getRegistry().registerPanel( wd.caf.impl.panels.externalDivContent({
     name:'usage',
     description: 'Usage',
     order:"21", 
@@ -53,7 +69,7 @@ wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
             
             <blockquote>
                 <pre>
-wd.caf.registry.registerAction(wd.caf.action({
+application.getRegistry().registerAction(wd.caf.action({
     name: "notificationAction",
     description: "Notification action",
     order: 105,
@@ -70,11 +86,11 @@ wd.caf.registry.registerAction(wd.caf.action({
  
             <blockquote>
                 <pre>
-wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
     name:'about',
     key:'1'
 }) );
-wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
     name:'usage',
     key:'2'
 }) );
@@ -86,26 +102,10 @@ wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
             <p>If the other pre-defined elements are not enough, they can be extended with custom built classes.
                TODO: blah blah blah more talk here</p>
             
-            
-            <h1>Application</h1>
                         
-            <h2>Creating the application</h2>
-            <p>A CAF application is created by calling the wd.caf.application constructor. 
-               The specs for a new application include the name, the html container where the application will run,
-               the template and the type of transition between panels. </p>
+
             
-            <blockquote>
-                <pre>
-var application = wd.caf.application({
-    name: 'Community Application Framework', 
-    container:"#caf", 
-    template:'default', 
-    transition: "basic"
-});
-                </pre>
-            </blockquote>
-            
-            <h2>Launching the application</h2>
+            <h1>Launching the application</h1>
             
             <p>The init method starts the application.</p>
             

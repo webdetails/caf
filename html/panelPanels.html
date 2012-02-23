@@ -60,7 +60,7 @@ wd.caf.impl.panels.samplePanel = function(spec){
             
             <blockquote>
                 <pre>
-wd.caf.registry.registerPanel( wd.caf.impl.panels.samplePanel() );
+application.getRegistry().registerPanel( wd.caf.impl.panels.samplePanel() );
                 </pre>
             </blockquote>
             
@@ -68,7 +68,7 @@ wd.caf.registry.registerPanel( wd.caf.impl.panels.samplePanel() );
 
             <blockquote>
                 <pre>
-wd.caf.registry.registerPanel( wd.caf.panel({
+application.getRegistry().registerPanel( wd.caf.panel({
     name:'samplePanel',
     description: 'Sample Panel',
     order:"42", 
@@ -104,12 +104,12 @@ wd.caf.registry.registerPanel( wd.caf.panel({
                 <dt>class</dt><dd> wf.caf.impl.panels.iframeContent</dd>
                 <dt>description</dt><dd> Creates and iframe with a given url as embbeded content and appends it to the panel container.</dd>
                 <dt>extends</dt><dd>wf.caf.panel </dd>
-                <dt>additional specs</dt><dd> Additional specs: url: target url.</dd>
+                <dt>additional specs</dt><dd>url: target url.</dd>
                 </dl>
                     
                 <h2>Under Construction</h2>
                 <dl>
-                <dt>class</dt><dd> wf.caf.impl.pfaCreatesandnels.underConstruction</dd>
+                <dt>class</dt><dd> wf.caf.impl.panels.underConstruction</dd>
                 <dt>description</dt><dd> Appends a div with the words "Under construction" to the panel container.</dd>
                 <dt>extends</dt><dd>wf.caf.panel </dd>
                 <dt>aditional specs</dt><dd>none</dd>

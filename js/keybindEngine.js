@@ -29,7 +29,7 @@ wd.caf.modules.keybindEngine =  function(myself, spec) {
         
         if(!keybinds){
             // init panels
-            keybinds = wd.caf.registry.listKeybinds().map(function(keybind){
+            keybinds = myself.getRegistry().listKeybinds().map(function(keybind){
                 keybind.init(myself);
                 return keybind;
             });

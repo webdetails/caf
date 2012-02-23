@@ -27,7 +27,7 @@ wd.caf.modules.transitionEngine =  function(myself, spec) {
     impl.start = function(){
             
 
-        transition = wd.caf.registry.getTransition(myself.options.transition);
+        transition = myself.getRegistry().getTransition(myself.options.transition);
         
         transition.init(myself);
         transition.applyCss();

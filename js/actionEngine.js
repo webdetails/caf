@@ -29,7 +29,7 @@ wd.caf.modules.actionEngine =  function(myself, spec) {
         
         if(!actions){
             // init panels
-            actions = wd.caf.registry.listActions().map(function(action){
+            actions = myself.getRegistry().listActions().map(function(action){
                 action.init(myself);
                 return action;
             });
@@ -45,7 +45,7 @@ wd.caf.modules.actionEngine =  function(myself, spec) {
      */
     impl.getAction = function(name){
         
-        return wd.caf.registry.getAction(name);
+        return myself.getRegistry().getAction(name);
                 
     }
 

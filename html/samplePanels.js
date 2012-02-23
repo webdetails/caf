@@ -7,23 +7,7 @@
 /**jslint globals: wd*/
 
 
-/**
- * About
- *
- */
 
-wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
-    name:'about',
-    description: 'About',
-    order:"20", 
-    url:"panelAbout.html", 
-    selector:"#about",
-    color:"#06272C"
-}) );
-wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
-    name:'about',
-    key:'1'
-}) );
 
 
 /**
@@ -31,7 +15,7 @@ wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
  *
  */
 
-wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
+application.getRegistry().registerPanel( wd.caf.impl.panels.externalDivContent({
     name:'usage',
     description: 'Usage',
     order:"21", 
@@ -39,15 +23,34 @@ wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
     selector:"#usage",
     color:"#06272C"
 }) );
-wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
     name:'usage',
     key:'2'
 }) );
 
 
+/**
+ * About
+ *
+ */
+
+application.getRegistry().registerPanel( wd.caf.impl.panels.externalDivContent({
+    name:'about',
+    description: 'About',
+    order:"20", 
+    url:"panelAbout.html", 
+    selector:"#about",
+    color:"#06272C"
+}) );
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+    name:'about',
+    key:'1'
+}) );
 
 
-wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
+
+
+application.getRegistry().registerPanel( wd.caf.impl.panels.externalDivContent({
     name:'panels',
     description: 'Panels',
     order:"22", 
@@ -55,7 +58,7 @@ wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
     selector:"#panels",
     color:"#06272C"
 }) );
-wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
     name:'panels',
     key:'3'
 }) );
@@ -64,7 +67,7 @@ wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
 
 
 
-wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
+application.getRegistry().registerPanel( wd.caf.impl.panels.externalDivContent({
     name:'actions',
     description: 'Actions',
     order:"23", 
@@ -72,7 +75,7 @@ wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
     selector:"#actions",
     color:"#06272C"
 }) );
-wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
     name:'actions',
     key:'4'
 }) );
@@ -82,7 +85,7 @@ wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
 
 
 
-wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
+application.getRegistry().registerPanel( wd.caf.impl.panels.externalDivContent({
     name:"notifications",
     description: 'Notifications',
     order:"24", 
@@ -90,12 +93,12 @@ wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
     selector:"#notifications",
     color:"#06272C"
 }) );
-wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
     name:'notifications',
     key:'5'
 }) );
 
-wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
+application.getRegistry().registerPanel( wd.caf.impl.panels.externalDivContent({
     name:'popups',
     description: 'Popups',
     order:"25", 
@@ -103,12 +106,12 @@ wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
     selector:"#popups",
     color:"#06272C"
 }) );
-wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
     name:'popups',
     key:'6'
 }) );
 
-wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
+application.getRegistry().registerPanel( wd.caf.impl.panels.externalDivContent({
     name:"templates",
     description: 'Templates',
     order:"26", 
@@ -116,12 +119,12 @@ wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
     selector:"#templates",
     color:"#06272C"
 }) );
-wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
     name:'templates',
     key:'7'
 }) );
 
-wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
+application.getRegistry().registerPanel( wd.caf.impl.panels.externalDivContent({
     name:"keybinds",
     description: 'Keybinds',
     order:"27", 
@@ -129,13 +132,13 @@ wd.caf.registry.registerPanel( wd.caf.impl.panels.externalDivContent({
     selector:"#keybinds",
     color:"#06272C"
 }) );
-wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
     name:'keybinds',
     key:'8'
 }) );
 
 /*
-wd.caf.registry.registerPanel( wd.caf.impl.panels.underConstruction({
+application.getRegistry().registerPanel( wd.caf.impl.panels.underConstruction({
     name:'contactUs',
     description: 'Contact us',
     order:"28", 
@@ -143,7 +146,7 @@ wd.caf.registry.registerPanel( wd.caf.impl.panels.underConstruction({
 }) );
 */
 
-wd.caf.registry.registerPanel( wd.caf.impl.panels.iframeContent({
+application.getRegistry().registerPanel( wd.caf.impl.panels.iframeContent({
     name:'contactUs',
     description: 'Contact us',
     order:"28", 
@@ -152,7 +155,7 @@ wd.caf.registry.registerPanel( wd.caf.impl.panels.iframeContent({
     color:"#06272C"
 }) );
 
-wd.caf.registry.registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
     name:'contactUs',
     key:'9'
 }) );

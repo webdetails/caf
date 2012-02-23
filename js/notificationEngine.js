@@ -28,7 +28,7 @@ wd.caf.modules.notificationEngine =  function(myself, spec) {
      */
     impl.start = function(){
         
-        notification = wd.caf.registry.getNotification(myself.options.notification);
+        notification = myself.getRegistry().getNotification(myself.options.notification);
         
         notification.init(myself);
         notification.applyCss();

@@ -21,15 +21,3 @@ var application = wd.caf.application({
     template:'default', 
     transition: "basic"
 });
-            
-// Launch the app on page ready
-$(function(){
-    application.init();
-                
-});
-
-/*$(function (){
-    
-  application.notificationEngine.getNotification().warn("Don't forget to explain the interface when I talk about functions.");
-});*/
-

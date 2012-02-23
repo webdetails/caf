@@ -30,9 +30,16 @@
         
         <!-- Sample and documentation -->
         <link rel="stylesheet" href="sample.css" type="text/css"/>
+        <script src="sampleApplication.js"></script>
         <script src="samplePanels.js"></script>
         <script src="sampleActions.js"></script>
-        <script src="sampleApplication.js"></script>
+        <script>
+            // Launch the app on page ready
+            $(function(){
+                application.init();
+                
+            });
+        </script>
 
 
 
