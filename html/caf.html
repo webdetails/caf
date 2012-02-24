@@ -19,8 +19,10 @@
         <script src="../lib/js/jquery.hotkeys.js"></script>
         <script src="../lib/js/jquery.iframe-auto-height.js"></script>
         <script src="../lib/js/modernizr.js"></script>
+        <script type="text/javascript" src="jquery.snippet.js"></script>
         <link rel="stylesheet" href="../lib/css/borderBox.css" type="text/css">
         <link rel="stylesheet" href="../js/panels/generics.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="jquery.snippet.css" />
 
         <!-- CAF -->
         
@@ -34,10 +36,14 @@
         <script src="samplePanels.js"></script>
         <script src="sampleActions.js"></script>
         <script>
+              
             // Launch the app on page ready
             $(function(){
-                application.init();
+                application.init(); 
                 
+                setTimeout( function(){
+                    $("pre.js").snippet("javascript",{style:"matlab",transparent:true,showNum:false});
+                }, 100);
             });
         </script>
 
@@ -47,6 +53,7 @@
     <body>
 
         <div id="caf"></div>
+       
 
     </body>
 </html>

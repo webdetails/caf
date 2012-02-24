@@ -27,8 +27,7 @@
 
             <h2>Complete syntax <span>[create a new panel constructor]</span></h2>
             
-            <blockquote>
-                <pre>
+                <pre class="js">
 wd.caf.impl.panels.samplePanel = function(spec){
     
     /**
@@ -54,20 +53,16 @@ wd.caf.impl.panels.samplePanel = function(spec){
         
 };
                 </pre>
-            </blockquote>
             
             <p> Register the panel: </p>
             
-            <blockquote>
-                <pre>
+                <pre class="js">
 application.getRegistry().registerPanel( wd.caf.impl.panels.samplePanel() );
                 </pre>
-            </blockquote>
             
             <h2>Simpler syntax <span>[pass options to an existing panel constructor and register directly]</span></h2>
 
-            <blockquote>
-                <pre>
+                <pre class="js">
 application.getRegistry().registerPanel( wd.caf.panel({
     name:'samplePanel',
     description: 'Sample Panel',
@@ -77,7 +72,6 @@ application.getRegistry().registerPanel( wd.caf.panel({
            }
 }) );
                 </pre>
-            </blockquote>
             
 
             

@@ -24,8 +24,7 @@
 
             <h2>Complete syntax <span>[create a new action constructor]</span></h2>
             
-            <blockquote>
-                <pre>
+                <pre class="js">
 wd.caf.impl.actions.sampleAction = function(spec){
     
     /**
@@ -51,20 +50,16 @@ wd.caf.impl.actions.sampleAction = function(spec){
 };
 
                 </pre>
-            </blockquote>
             
             <p> Register the action </p>
             
-            <blockquote>
-                <pre>
+                <pre class="js">
 application.getRegistry().registerAction(wd.caf.impl.actions.sampleAction() );    
                 </pre>
-            </blockquote>
             
             <h2>Simpler syntax <span>[pass options to an existing action constructor and register directly]</span></h2>
 
-            <blockquote>
-                <pre>
+                <pre class="js">
 application.getRegistry().registerAction( wd.caf.action({
     name: "sampleAction",
     description: "Sample notification action",
@@ -74,7 +69,6 @@ application.getRegistry().registerAction( wd.caf.action({
     }
 }) );
                 </pre>
-            </blockquote>
 
 
 
