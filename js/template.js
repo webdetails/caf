@@ -102,7 +102,6 @@ wd.caf.template = function( spec) {
         
         
         return wrapper;
-        ph.append(wrapper);
         
         
     }

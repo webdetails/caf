@@ -9,11 +9,11 @@
 
         <div id="templates">
 
-    
+
             <h1> Create a new Template </h1>
-            
+
             <p> TODO: Need to come up with something to say that's not exactly a copy and paste of the other panels.</p>
-            
+
             <dl>
                 <dt>new specs</dt><dd>Redefinition of the specs of the parent popup class and addition of new ones.</dd>
                 <dt>parent class</dt><dd>The template class to extend.</dd>
@@ -23,23 +23,42 @@
                     handle with care!</dd>
             </dl>
 
-            
-            <h1> Implemented Templates </h1>
-            
-                         
-                <h2> Default Template</h2>
-                <dl>
-                    <dt>class</dt><dd> wd.caf.impl.templates.defaultTemplate </dd>
-                    <dt>description</dt><dd>The default CAF template which includes the application logo, 
-                        an action bar, a panel bar and the layout for panel containers (title+content).</dd>
-                    <dt>extends</dt><dd>wf.caf.template </dd>
-                    <dt>additional specs</dt><dd>cssFile: style to be applied to the template.</dd>
-                </dl>
-                
 
-            
-            
-            
+            <h1> Implemented Templates </h1>
+
+
+            <h2> Default Template</h2>
+            <dl>
+                <dt>class</dt><dd> wd.caf.impl.templates.defaultTemplate </dd>
+                <dt>description</dt><dd>The default CAF template which includes the application logo, 
+                    an action bar, a panel bar and the layout for panel containers (title+content).</dd>
+                <dt>extends</dt><dd>wf.caf.template </dd>
+                <dt>additional specs</dt><dd>cssFile: style to be applied to the template.</dd>
+            </dl>
+
+            <h2> Empty Template</h2>
+            <dl>
+                <dt>class</dt><dd> wd.caf.impl.templates.emptyTemplate </dd>
+                <dt>description</dt><dd>Empty template - useful if you want to take advantage of CAF's library without
+                adding a visual element</dd>
+                <dt>extends</dt><dd>wf.caf.template </dd>
+                
+            </dl>
+
+            <h2> Simple Template</h2>
+            <dl>
+                <dt>class</dt><dd> wd.caf.impl.templates.simpleTemplate </dd>
+                <dt>description</dt><dd>Simple template - Draws all panels sequencially. No links for panels or actions </dd>
+                <dt>extends</dt><dd>wf.caf.template </dd>
+                
+            </dl>
+
+
+
+
+
+
+
         </div>
 
 

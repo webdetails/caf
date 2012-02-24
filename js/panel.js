@@ -26,11 +26,8 @@ wd.caf.panel = function(spec) {
         color: "red"
     };
 
-    /* private stuff*/
-    var $placeholder;
-    
     spec = $.extend({},_spec,spec);
-    var myself = wd.caf.entity(spec);
+    var myself = wd.caf.component(spec);
     
     
     /**
@@ -44,7 +41,7 @@ wd.caf.panel = function(spec) {
             "init": "Init function",
             "panel": "Function to call to execute the panel",
             "description": "Logo placeholder",
-            "drawPanel($ph)": "Draws the panel on the specified place"
+            "draw($ph)": "Draw the panel on the specified place"
             
         }
     }
@@ -68,7 +65,7 @@ wd.caf.panel = function(spec) {
      * @memberof wd.caf.panel
      */
     myself.draw = spec.draw || function($ph){
-        myself.log("Panel draw action","warn");
+        myself.log("Panel draw action, override","warn");
         $ph.append(myself.getName());
     }
 
@@ -82,29 +79,6 @@ wd.caf.panel = function(spec) {
         myself.caf.panelEngine.selectPanel(myself);
     }
     
-
-    
-    /**
-     * Sets current planel placeholder
-     * @name panel.setPlaceholder
-     * @memberof wd.caf.panel
-     * @param the placeholder
-     */
-    myself.setPlaceholder = function(ph){
-        $placeholder = ph;
-    }
-
-
-    /**
-     * Gets current planel placeholder
-     * @name panel.getPlaceholder
-     * @memberof wd.caf.panel
-     
-     */
-    myself.getPlaceholder = function(){
-        return $placeholder;
-    }
-
 
     
     return myself;
