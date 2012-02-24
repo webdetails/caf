@@ -48,12 +48,12 @@ wd.caf.impl.actions.alertAction = function(spec){
         
 };
 
-wd.caf.registry.registerAction(wd.caf.impl.actions.alertAction() );
+application.getRegistry().registerAction(wd.caf.impl.actions.alertAction() );
 
 
 // Actions can also be registred using a simpler syntax
 
-wd.caf.registry.registerAction(wd.caf.action({
+application.getRegistry().registerAction(wd.caf.action({
     name: "notificationAction",
     description: "Notification action",
     order: 105,
@@ -99,9 +99,9 @@ wd.caf.impl.actions.popupAction = function(spec){
         
 };
 
-wd.caf.registry.registerAction(wd.caf.impl.actions.popupAction() );
+application.getRegistry().registerAction(wd.caf.impl.actions.popupAction() );
 
-wd.caf.registry.registerAction(wd.caf.action({
+application.getRegistry().registerAction(wd.caf.action({
     name: "logAction", 
     description: "Log action",
     order: 115,
