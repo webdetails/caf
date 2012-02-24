@@ -35,6 +35,6 @@
 .basicTransitionHidden{
 
     opacity:0;
-    z-index:-50;
+    display:none;
 
 }
