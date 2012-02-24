@@ -29,6 +29,8 @@ wd.caf.impl.panels.underConstruction = function(spec){
     spec = $.extend({},_spec,spec);
     var myself = wd.caf.panel(spec);
       
+    // BlueprintMixin
+    wd.caf.modules.blueprintPanelModule(myself);
       
     /**
      * Describes this interface
@@ -37,8 +39,10 @@ wd.caf.impl.panels.underConstruction = function(spec){
      */
     myself.draw = spec.draw || function($ph){
         
+        var $content = myself.generateBlueprintStructure().appendTo($ph);
+
         var d = $('<div/>').addClass("underConstruction").text("Under Construction");
-        $ph.append(d);
+        $content.append(d);
     }
       
 
@@ -183,8 +187,8 @@ wd.caf.impl.panels.iframeContent = function(spec){
             iframe.iframeAutoHeight({
                 debug:true, 
                 minHeight: spec.minHeight
-                })
             })
+        })
         .appendTo($ph);
         
     }

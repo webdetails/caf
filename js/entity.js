@@ -15,6 +15,7 @@ wd.caf.entity = function( spec) {
         name: "entity",
         type: "entity",
         order: 100,
+        cssFile: undefined,
         description: "override description"
     };
     
@@ -115,6 +116,10 @@ wd.caf.entity = function( spec) {
      */
 
     myself.applyCss = function(){
+        
+        if(!spec.cssFile){
+            return;
+        }
         
         myself.log("Applying template: " + spec.cssFile, "info");
         

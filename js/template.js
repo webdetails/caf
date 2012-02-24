@@ -21,7 +21,7 @@ wd.caf.template = function( spec) {
     
     var _spec = {
         name: "override",
-        cssFile: "override",
+        cssFile: undefined,
         type: "template"
     };
 
