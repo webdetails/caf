@@ -157,6 +157,7 @@ wd.caf.impl.panels.iframeContent = function(spec){
         description: "Iframe Content",
         order: 50,
         color: "cyan",
+        minHeight: undefined,
         url: undefined // replace me
     };
 
@@ -173,8 +174,17 @@ wd.caf.impl.panels.iframeContent = function(spec){
         
         var iframe = $("<iframe/>").addClass("cafIframeContentPanel");
         
+        if(spec.minHeight){
+            iframe.css("min-height",spec.minHeight+"px");
+        }
+        
         iframe.attr("src",myself.getUrl())
-        .load(function(){iframe.iframeAutoHeight({debug:true})})
+        .load(function(){
+            iframe.iframeAutoHeight({
+                debug:true, 
+                minHeight: spec.minHeight
+                })
+            })
         .appendTo($ph);
         
     }

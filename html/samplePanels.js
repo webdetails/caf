@@ -152,6 +152,7 @@ application.getRegistry().registerPanel( wd.caf.impl.panels.iframeContent({
     order:"28", 
 //    url:"panelAbout.html"
     url:"http://www.webdetails.pt",
+    minHeight: 800,
     color:"#06272C"
 }) );
 
