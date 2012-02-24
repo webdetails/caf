@@ -37,7 +37,7 @@ wd.caf.impl.transitions.basicTransition = function(spec){
      * @param panel to switch to
      */
     
-    myself.setupTransition = spec.setupTransaction || function(panel){
+    myself.setupTransition = spec.setupTransition || function(panel){
 
         myself.log("Basic setup transition");
         
@@ -46,8 +46,11 @@ wd.caf.impl.transitions.basicTransition = function(spec){
          */ 
         
         myself.caf.panelEngine.listPanels().map(function(panel){
-           panel.getPlaceholder().addClass("basicTransitionHidden"); 
+           panel.getPlaceholder().addClass("basicTransitionHidden");
+           panel.getPlaceholder().addClass('panelHidden');
         });
+        
+        
     }
 
 
@@ -63,14 +66,30 @@ wd.caf.impl.transitions.basicTransition = function(spec){
 
 
         if(fromPanel){
-            myself.log("Switching from panel " + fromPanel.getDescription() + " to panel " + toPanel.getDescription());
-            fromPanel.getPlaceholder().addClass("basicTransitionHidden");
-            toPanel.getPlaceholder().removeClass("basicTransitionHidden");
             
+            if ( toPanel !== fromPanel){
+            
+                myself.log("Switching from panel " + fromPanel.getDescription() + " to panel " + toPanel.getDescription());
+            
+                toPanel.getPlaceholder().removeClass('panelHidden');
+            
+                setTimeout( function(){
+                    fromPanel.getPlaceholder().addClass("basicTransitionHidden");
+                    toPanel.getPlaceholder().removeClass("basicTransitionHidden");
+                }, 10);
+
+                setTimeout(function() {
+                    fromPanel.getPlaceholder().addClass('panelHidden');
+                },500);
+            }
         }
         else{
             myself.log("Switching to panel " + toPanel.getDescription());
-            toPanel.getPlaceholder().removeClass("basicTransitionHidden");
+            toPanel.getPlaceholder().removeClass('panelHidden');
+            setTimeout( function(){
+                toPanel.getPlaceholder().removeClass("basicTransitionHidden");
+            }, 10);
+
         }
         
     }

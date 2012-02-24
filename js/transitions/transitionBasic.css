@@ -33,8 +33,10 @@
 }
 
 .basicTransitionHidden{
-
     opacity:0;
-    display:none;
+}
 
+
+.panelHidden{
+    display: none;
 }
