@@ -10,9 +10,32 @@
         <div id="about">
 
             <h1>CAF - Community Application Framework</h1>
-
-            <p>blah blah blah</p>
-
+            <p>CAF is a general library to create the frontend of web applications. 
+               TODO: I seriously can't think of stuff to say...</p>
+            
+            
+            <h1>Elements</h1>
+            <p>CAF implements a set of different UI elements:</p>
+            <dl>
+                <dt>Panels</dt><dd>Panels are the placeholders for the application content. 
+                    Navigation between panels is, by default, implemented in the top right corner.
+                    CAF includes several panel classes that can get the content directly from the panel definition,
+                    from a html element, from an html element in another file or using an iframe.</dd>
+                <dt>Actions</dt><dd>Actions are user triggered operations which, by default, 
+                    are available on the top left corner of the UI. Examples of actions are things like Save, Open, Log out...</dd>
+                <dt>Notifications</dt><dd>These are messages that can be triggered by some another element. 
+                    CAF implements a default notification type with success, info, warn, debug and error 
+                    notification levels.</dd>
+                <dt>Popups</dt><dd>The general popup interface implements functions to show, hide
+                    and draw a popup. CAF includes more complex implementations like ok/cancel
+                    popups or close popups.</dd>
+                <dt>Templates</dt><dd>CAF templates define the general application layout, particularly where to draw actions and panels.</dd>
+                <dt>Keybinds</dt><dd>With CAF keybinds, a combination of keys can be bound to a given operation. 
+                    Particularly, they can be used to define a quick way of switching between panels.</dd>
+                
+            </dl>
+            
+            <div id="cof"/>
 
         </div>
 

@@ -1,0 +1,111 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. 
+ *  
+*/
+
+/* Begin Style Guide */
+
+@font-face {
+    font-family: 'Gudea';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Gudea'), url('http://themes.googleusercontent.com/static/fonts/gudea/v1/kfCeUiT0HGXHQC8YVeaKy6CWcynf_cDxXwCLxiixG1c.woff') format('woff');
+}
+@font-face {
+    font-family: 'Gudea';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Gudea Italic'), local('Gudea-Italic'), url('http://themes.googleusercontent.com/static/fonts/gudea/v1/tZZo84E1pZ1XbFCB5vu4pwLUuEpTyoUstqEm5AMlJo4.woff') format('woff');
+}
+@font-face {
+    font-family: 'Gudea';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Gudea Bold'), local('Gudea-Bold'), url('http://themes.googleusercontent.com/static/fonts/gudea/v1/6M2RKly85u67vSsXH0-zqnYhjbSpvc47ee6xR_80Hnw.woff') format('woff');
+}
+
+
+
+body{
+    
+}
+
+p, div, dt, dd, dl {
+    font-family: "Gudea", sans-serif;
+}
+
+.panelContainer blockquote{
+    border-left: 3px solid #CCCCCC;
+    font-family: 'Courier New',Courier,monospace;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding-left: 5px;
+    
+}
+
+
+.panelContainer h1{
+    color: #95A9B3;
+    float: left;
+    font-family: 'Gudea',sans-serif;
+    font-size: 35px;
+    height: auto;
+    letter-spacing: -1px;
+    line-height: 110%;
+    text-decoration: none;
+    z-index: 20;
+    display:block;
+    width:100%;
+}
+
+.panelContainer h2{
+     font-size: 20px;
+    line-height: 150%;
+    color: #22494F;
+    font-family: 'Gudea',sans-serif;
+    letter-spacing: 0;
+    text-decoration: none;
+}
+
+.panelContainer h2 span {
+    font-size:12px;
+    
+}
+
+.panelContainer{
+    font-family: 'Gudea',sans-serif;
+    font-size:13px;
+    color: #22494F;
+    text-decoration: none;
+}
+
+/*.panelContainer .panelTitle {
+    background:#06272C;
+    color: #B6C8D1;
+    display: block;
+    font-family: 'Gudea',sans-serif;
+    font-size: 35px;
+    height: 100px;
+    letter-spacing: -1px;
+    line-height: 110%;
+    text-decoration: none;
+}*/
+
+
+.panelContainer dl {
+    width:550px;
+}
+.panelContainer dl dt {
+    color:#22494F;
+    width:100%;
+    text-align: left;
+}
+.panelContainer dl dd {
+    margin-left:10px;
+}
+
+.panelContainer p {
+    width:600px;
+}

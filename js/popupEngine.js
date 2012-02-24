@@ -139,7 +139,7 @@ wd.caf.modules.popupEngine =  function(myself, spec) {
         
         if(!popups){
             // init popups
-            popups = wd.caf.registry.listPopups().map(function(popup){
+            popups = myself.getRegistry().listPopups().map(function(popup){
                 popup.init(myself);
                 return popup;
             });
@@ -157,7 +157,7 @@ wd.caf.modules.popupEngine =  function(myself, spec) {
      */
     impl.getPopup = function(name){
         
-        return wd.caf.registry.getPopup(name);
+        return myself.getRegistry().getPopup(name);
                 
     }
     

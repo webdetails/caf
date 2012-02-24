@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+   - You can obtain one at http://mozilla.org/MPL/2.0/.  -->
+<html>
+    <head>
+    </head>
+    <body>
+
+        <div id="usage">
+            
+            <h1>Creating the application</h1>
+            <p>A CAF application is created by calling the wd.caf.application constructor. 
+               The specs for a new application include the name, the html container where the application will run,
+               the template and the type of transition between panels. </p>
+            
+            <blockquote>
+                <pre>
+var application = wd.caf.application({
+    name: 'Community Application Framework', 
+    container:"#caf", 
+    template:'default', 
+    transition: "basic"
+});
+                </pre>
+            </blockquote>
+
+            <h1>Elements</h1>
+            <p>All CAF elements extend the same base class and share the same syntax for creation.
+                TODO:</p>
+            
+            <p>Luckily, CAF already implements default classes for most of the UI elements and a 
+               CAF application comes with those default elements registered. The exceptions are panels
+               and actions, since they directly affect the layout. So, to create a new CAF application the first step is to 
+               register panels and actions.</p>
+            
+            
+            <h2>Panels</h2>
+            <p>These sample panels are built using the pre-defined externalDivContent panel class, 
+               which takes a DOM element from a given url and uses it as content for the registered panels. </p>
+            
+            <blockquote>
+                <pre>
+application.getRegistry().registerPanel( wd.caf.impl.panels.externalDivContent({
+    name:'about',
+    description: 'About',
+    order:"20", 
+    url:"panelAbout.html", 
+    selector:"#about"
+}) );
+
+
+application.getRegistry().registerPanel( wd.caf.impl.panels.externalDivContent({
+    name:'usage',
+    description: 'Usage',
+    order:"21", 
+    url:"panelUsage.html", 
+    selector:"#usage"
+}) );   
+
+                </pre>
+            </blockquote>
+            
+            
+            <h2>Actions</h2>
+            
+            <p>This sample action is registered using the same syntax as the panels. 
+               The executeAction function triggers one of the registered notification messages. </p>
+            
+            <blockquote>
+                <pre>
+application.getRegistry().registerAction(wd.caf.action({
+    name: "notificationAction",
+    description: "Notification action",
+    order: 105,
+    executeAction: function(){
+        this.caf.notificationEngine.getNotification().success("Hello world")
+    }
+}) );
+
+                </pre>
+            </blockquote>
+            
+            <h2>Keybinds <span>[keybinds are optional but share the same syntax]</span></h2>
+            <p>These sample keybinds use a pre-defined panelKeybind class, which triggers a transition to a given panel</p>
+ 
+            <blockquote>
+                <pre>
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+    name:'about',
+    key:'1'
+}) );
+application.getRegistry().registerKeybind(  wd.caf.impl.keybinds.panelKeybind({
+    name:'usage',
+    key:'2'
+}) );
+                </pre>
+            </blockquote>
+            
+            <h2>Others</h2>
+           
+            <p>If the other pre-defined elements are not enough, they can be extended with custom built classes.
+               TODO: blah blah blah more talk here</p>
+            
+                        
+
+            
+            <h1>Launching the application</h1>
+            
+            <p>The init method starts the application.</p>
+            
+            <blockquote>
+                <pre>
+$(function(){
+    application.init();
+                
+});
+                </pre>
+            </blockquote>
+            
+
+
+        </div>
+
+
+    </body>
+</html>

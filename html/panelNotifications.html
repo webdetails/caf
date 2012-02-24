@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+   - You can obtain one at http://mozilla.org/MPL/2.0/.  -->
+<html>
+    <head>
+    </head>
+    <body>
+
+        <div id="notifications">
+
+    
+            <h1> Create a new notification </h1>
+            
+            <p> TODO: Need to come up with something to say that's not exactly a copy and paste of the other panels.</p>
+            
+            <dl>
+                <dt>new specs</dt><dd>Redefinition of the specs of the parent notification class and addition of new ones.</dd>
+                <dt>parent class</dt><dd>The notification class to extend.</dd>
+                <dt>setupNotification()</dt><dd>The function to setup the notification, tipically by creating the div container
+                    where the notification will be displayed.</dd>
+                <dt>notify(msg, level)</dt><dd>The handler for the notification itself.
+                    The function interface includes a notification message and 
+                    a notification level. CAF includes 5 level types: "success",
+                    "info", "warn", "debug", "error".</dd>
+
+            </dl>
+
+
+            
+            <h1> Implemented Notifications </h1>
+            
+                         
+                <h2>Default Notification</h2>
+                <dl>
+                    <dt>class</dt><dd> wd.caf.impl.notifications.defaultNotification </dd>
+                <dt>description</dt><dd> Shows the notification message on the window top for 2 seconds.</dd>
+                <dt>extends</dt><dd>wf.caf.notification </dd>
+                <dt>additional specs</dt><dd>cssFile: path to the file with the notification css rules.</dd>
+                </dl>
+                
+                
+                <textarea id="testingStuffUp"></textarea>
+            
+            
+            
+        </div>
+
+
+    </body>
+</html>

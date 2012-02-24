@@ -52,7 +52,8 @@ wd.caf.application = function(spec) {
     };
 
     var myself = {},
-    state;
+    state,
+    registry;
     
     myself.options = $.extend({},defaults,spec);
 
@@ -60,9 +61,13 @@ wd.caf.application = function(spec) {
     
     function construct(){
         wd.info("Initializing application: " + myself.options.name);
+        
+        // Initializing private registry
+        registry = wd.caf.registry.spawnRegistry();
+
     };
 
-
+     
 
     myself.init = function()  {
         
@@ -97,6 +102,14 @@ wd.caf.application = function(spec) {
         
         
     };
+    
+    
+    myself.getRegistry = function(){
+        
+        return registry;
+        
+    }
+    
     construct();
     return myself;
 };

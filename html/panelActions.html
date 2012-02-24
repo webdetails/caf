@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+   - You can obtain one at http://mozilla.org/MPL/2.0/.  -->
+<html>
+    <head>
+    </head>
+    <body>
+
+        <div id="actions">
+
+    
+            <h1> Create a new action </h1>
+            
+            <p> Just like panels, building a custom action class is  done by extending another action class, particularly wf.caf.action .</p>
+            
+            <dl>
+                <dt>new specs</dt><dd>Redefinition of the specs of the parent action class and addition of new ones.</dd>
+                <dt>parent class</dt><dd>The action class to extend.</dd>
+                <dt>executeAction( )</dt><dd>The function that implements the action itself.</dd>
+            </dl>
+      
+            <h1> Two ways to do it</h1>
+
+            <h2>Complete syntax <span>[create a new action constructor]</span></h2>
+            
+            <blockquote>
+                <pre>
+wd.caf.impl.actions.sampleAction = function(spec){
+    
+    /**
+     * Specific specs
+     */
+    
+    var _spec = {
+        name: "sampleAction",
+        description: "Sample alert action",
+        order: 100
+    };
+
+    spec = $.extend({},_spec,spec);  
+    var myself = wd.caf.action(spec);
+   
+    myself.executeAction = function(){
+        
+        alert("Hello world");
+    }
+        
+    return myself;
+        
+};
+
+                </pre>
+            </blockquote>
+            
+            <p> Register the action </p>
+            
+            <blockquote>
+                <pre>
+application.getRegistry().registerAction(wd.caf.impl.actions.sampleAction() );    
+                </pre>
+            </blockquote>
+            
+            <h2>Simpler syntax <span>[pass options to an existing action constructor and register directly]</span></h2>
+
+            <blockquote>
+                <pre>
+application.getRegistry().registerAction( wd.caf.action({
+    name: "sampleAction",
+    description: "Sample notification action",
+    order: 105,
+    executeAction: function(){
+        this.caf.notificationEngine.getNotification().success("Hello world")
+    }
+}) );
+                </pre>
+            </blockquote>
+
+
+
+            
+            <h1> Implemented Actions </h1>
+            
+
+            
+            
+            
+        </div>
+
+
+    </body>
+</html>
