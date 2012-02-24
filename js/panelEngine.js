@@ -31,7 +31,11 @@ wd.caf.modules.panelEngine =  function(myself, spec) {
             
 
         // Select the first panel
-        impl.selectPanel(impl.listPanels()[0]);
+        
+        var panels = impl.listPanels();
+        if (panels.length > 0) {
+          impl.selectPanel(panels[0]);
+        }
             
         
     }
