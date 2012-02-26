@@ -21,7 +21,7 @@ wd.caf.impl.templates.defaultTemplate = function(spec){
     
     var _spec = {
         name:"default",
-        cssFile: ["../js/templates/templateDefault.css"]
+        cssFile: ["../css/templateDefault.css"]
     }
 
     spec = $.extend({},_spec,spec);

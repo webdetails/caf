@@ -21,7 +21,7 @@ wd.caf.impl.notifications.defaultNotification = function(spec){
     
     var _spec = {
         name:"default",
-        cssFile: ["../js/notifications/notificationDefault.css"]
+        cssFile: ["../css/notificationDefault.css"]
     }
 
     spec = $.extend({},_spec,spec);

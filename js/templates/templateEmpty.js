@@ -20,7 +20,7 @@ wd.caf.impl.templates.emptyTemplate = function(spec){
      */
     var _spec = {
         name:"empty",
-        cssFile: ["../js/templates/templateDefault.css"],
+        cssFile: undefined,
         createMainSections: function() {},
         addActions: function() {},
         addPanels: function() {
