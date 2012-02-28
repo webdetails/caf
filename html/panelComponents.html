@@ -7,10 +7,10 @@
     </head>
     <body>
 
-        <div id="panels">
+        <div id="components">
 
     
-            <h1> Create a new panel </h1>
+            <h1> Create a new component </h1>
             
             <p> Building a custom panel class is easily done by extending another panel class, particularly the wf.caf.panel base class. 
                 Things to take into account when extending a panel include:</p>
@@ -53,61 +53,13 @@ wd.caf.impl.panels.samplePanel = function(spec){
         
 };
                 </pre>
-            
-            <p> Register the panel: </p>
-            
-                <pre class="js">
-application.getRegistry().registerPanel( wd.caf.impl.panels.samplePanel() );
-                </pre>
-            
-            <h2>Simpler syntax <span>[pass options to an existing panel constructor and register directly]</span></h2>
-
-                <pre class="js">
-application.getRegistry().registerPanel( wd.caf.panel({
-    name:'samplePanel',
-    description: 'Sample Panel',
-    order:"42", 
-    draw:  function($ph) {
-                $('&lt;div/&gt;').addClass("samplePanel").text("samplePanel").appendTo($ph);
-           }
-}) );
-                </pre>
+          
             
 
             
-            <h1> Implemented Panels </h1>
+            <h1> Implemented Components </h1>
             
-                <h2>Div Content</h2>
-                <dl>
-                    <dt>class</dt><dd> wf.caf.impl.panels.divContent </dd>
-                <dt>description</dt><dd> Takes a DOM element identified by a jquery selector and appends it to the panel container.</dd>
-                <dt>extends</dt><dd>wf.caf.panel </dd>
-                <dt>additional specs</dt><dd>selector: jquery selector for the target element.</dd>
-                </dl>
-                
-                <h2>External Div Content</h2>
-                <dl>
-                <dt>class</dt><dd> wf.caf.impl.panels.externalDivContent</dd>
-                <dt>description</dt><dd> Takes a DOM element identified by a jquery selector, from a given url, and appends it to the panel container. If no selector is provided, it fetches the full html content of the provided url.</dd>
-                <dt>extends</dt><dd>wf.caf.impl.panels.divContent </dd>
-                <dt>additional specs</dt><dd>selector: jquery selector for the target element. url: target url.</dd>
-                </dl>
-                
-                <h2>iframe Content</h2>
-                <dl>
-                <dt>class</dt><dd> wf.caf.impl.panels.iframeContent</dd>
-                <dt>description</dt><dd> Creates and iframe with a given url as embbeded content and appends it to the panel container.</dd>
-                <dt>extends</dt><dd>wf.caf.panel </dd>
-                <dt>additional specs</dt><dd>url: target url.<br />minHeight: Minimum iframe height</dd>
-                </dl>
-                    
-                <h2>Under Construction</h2>
-                <dl>
-                <dt>class</dt><dd> wf.caf.impl.panels.underConstruction</dd>
-                <dt>description</dt><dd> Appends a div with the words "Under construction" to the panel container.</dd>
-                <dt>extends</dt><dd>wf.caf.panel </dd>
-                <dt>aditional specs</dt><dd>none</dd>
-                </dl>
+
             
             
             
