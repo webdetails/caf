@@ -63,6 +63,10 @@ wd.caf.impl.transitions.basicTransition = function(spec){
      * @param Destination panel
      */
     myself.switchPanel = spec.switchPanel || function(fromPanel, toPanel){
+        
+        var lag = (Modernizr.csstransitions) ? 
+                  {transition:50, panel:500} : 
+                  {transition:0, panel:0};
 
 
         if(fromPanel){
@@ -76,11 +80,11 @@ wd.caf.impl.transitions.basicTransition = function(spec){
                 setTimeout( function(){
                     fromPanel.getPlaceholder().addClass("basicTransitionHidden");
                     toPanel.getPlaceholder().removeClass("basicTransitionHidden");
-                }, 10);
+                }, lag.transition);
 
                 setTimeout(function() {
                     fromPanel.getPlaceholder().addClass('panelHidden');
-                },500);
+                },lag.transition + lag.panel);
             }
         }
         else{
@@ -88,7 +92,7 @@ wd.caf.impl.transitions.basicTransition = function(spec){
             toPanel.getPlaceholder().removeClass('panelHidden');
             setTimeout( function(){
                 toPanel.getPlaceholder().removeClass("basicTransitionHidden");
-            }, 10);
+            }, lag.transition);
 
         }
         

@@ -54,28 +54,19 @@
 
 
      /**
-     * Removes an entity from the current registry or creates a shadow entity to
-     * mask parents'.
+     * Removes an entity from the current registry 
      * @memberof wd.caf.registry
      * @param {string} the module space to remove from 
      * @param {string} entity to remove
-     * @param {boolean} true: shadow, false: remove.
      */
     
-        myself.removeEntity = function(module,entityName,shadow){
-            shadow = shadow || false;
-            if (!_registry) {
-                _registry = {};
+        myself.removeEntity = function(module,entityName){
+            if (!_registry || !_registry[module] || !_registry[module].hasOwnProperty(entityName) ) {
+                return false;  
             }
-            if (!_registry[module]) {
-                _registry[module] = {};  
-            }
-            if (shadow){
-                _registry[module][entityName] = undefined;
-            } else {
-                 delete _registry[module][entityName] ;
-            }
-          
+            var c = _registry[module][entityName];
+            delete _registry[module][entityName] ;
+            return c;
         };
         
         
@@ -87,8 +78,13 @@
      */
     
         myself.shadowEntity = function(module,entityName){
-            myself.removeEntity(module, entityName, true)
-          
+            if (!_registry ) {
+                    _registry = {};
+            }
+            if (!_registry[module]) {
+                    _registry[module] = {};  
+            }
+            _registry[module][entityName] = undefined;   
         };
 
 
