@@ -152,7 +152,7 @@
     
         myself.mapEntities = function(module) {
         
-            var map = {},i;
+            var map = {},i,j;
             for (i in _registry[module]){
                 if (_registry[module].hasOwnProperty(i)){
                     map[i] = (_registry[module][i]);       
