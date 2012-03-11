@@ -118,7 +118,7 @@ wd.caf.template = function( spec) {
         var actions = myself.caf.actionEngine.listActions();
         
         actions.map(function(action){
-            $('<div class="cafAction cafLinks"></div>').text(action.getDescription())
+            $('<div class="cafAction cafLinks"></div>').append(action.getDescription())
             .data("action",action)
             .appendTo(myself.$actions);
         });
