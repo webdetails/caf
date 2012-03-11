@@ -86,11 +86,11 @@ wd.caf.application = function(spec) {
         wd.caf.modules.notificationEngine(myself);
 
 
+        myself.popupEngine.start();
+        myself.notificationEngine.start();
         myself.templateEngine.start();
         myself.transitionEngine.start();
-        myself.popupEngine.start();
         myself.panelEngine.start();
-        myself.notificationEngine.start();
         
         // Bind keys
         

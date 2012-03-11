@@ -98,7 +98,7 @@ wd.caf.template = function( spec) {
         
         myself.$panelsContainer = $('<div class="templatePanelsContainer"></div>')
         .appendTo(wrapper);
-        ;
+        
         
         
         return wrapper;
