@@ -41,7 +41,7 @@ wd.caf.impl.panels.underConstruction = function(spec){
         
         var $content = myself.generateBlueprintStructure().appendTo($ph);
 
-        var d = $('<div/>').addClass("underConstruction").text(spec.description);
+        var d = $('<div/>').addClass("underConstruction").text("Under Construction");
         $content.append(d);
     }
       
