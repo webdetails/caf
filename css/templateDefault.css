@@ -75,6 +75,10 @@ body {
 
 }
 
+.templateHead div.cafLinks.cafPanelSelected{
+    color: #393e3e
+}
+
 
 .templateHead > div.templateActions{
 

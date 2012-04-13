@@ -29,6 +29,7 @@ wd.caf.panel = function(spec) {
     spec = $.extend({},_spec,spec);
     var myself = wd.caf.component(spec);
     
+    var $panelLink = undefined;
     
     /**
      * Describes this interface
@@ -58,6 +59,19 @@ wd.caf.panel = function(spec) {
         
     }
     
+
+    myself.setPanelLink = function(_$panelLink){
+        
+        $panelLink = _$panelLink;
+        
+    }
+
+    myself.getPanelLink = function(){
+        
+        return $panelLink;
+        
+    }
+
     
     /**
      * Draws the panel

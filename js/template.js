@@ -144,19 +144,24 @@ wd.caf.template = function( spec) {
         
         // Build the links and draw them;
         
+        var isFirst = true;
         panels.map(function(panel){
-            $('<div class="cafPanel cafLinks"></div>').text(panel.getDescription())
+            
+            var $panelLink = $('<div class="cafPanel cafLinks"></div>').text(panel.getDescription())
             .data("panel",panel)
             .appendTo(myself.$panels);
-            
-            
+
+            panel.setPanelLink($panelLink);
             
             myself.drawPanelOnContainer(panel);
         });
         
         // bind panels
         myself.$panels.on("click",".cafPanel",function(event){
-            var panel = $(this).data("panel");
+            
+          
+            var panelLink = $(this);
+            var panel = panelLink.data("panel");
             myself.log("Clicked on Panel " + panel.getName());
             panel.select();
         });

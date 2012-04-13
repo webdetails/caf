@@ -34,7 +34,7 @@ wd.caf.modules.panelEngine =  function(myself, spec) {
         
         var panels = impl.listPanels();
         if (panels.length > 0) {
-          impl.selectPanel(panels[0]);
+            impl.selectPanel(panels[0]);
         }
             
         
@@ -95,13 +95,24 @@ wd.caf.modules.panelEngine =  function(myself, spec) {
 
         if(selectedPanel){
             selectedPanel.getPlaceholder().removeClass("selectedPanel");
+            
+            var $panelLink = selectedPanel.getPanelLink();
+            if(typeof $panelLink !== "undefined"){
+                $panelLink.removeClass("cafPanelSelected");
+            }
         }
         
         selectedPanel = toPanel;
 
 
         selectedPanel.getPlaceholder().addClass("selectedPanel");
-
+        var $panelLink = selectedPanel.getPanelLink();
+        
+        wd.log("Test");
+        
+        if(typeof $panelLink !== "undefined"){
+            $panelLink.addClass("cafPanelSelected");
+        }
 
         // Notify transition engine
         myself.transitionEngine.switchPanel(fromPanel,toPanel);
