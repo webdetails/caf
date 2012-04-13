@@ -119,6 +119,12 @@ wd.caf.modules.panelEngine =  function(myself, spec) {
 
         
     }
+    
+    
+    impl.reset = function (){
+        panels = undefined;
+        selectedPanel = undefined;
+    }
 
 
 };

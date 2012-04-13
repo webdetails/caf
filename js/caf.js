@@ -104,6 +104,26 @@ wd.caf.application = function(spec) {
     };
     
     
+    myself.refresh = function() {
+        
+        myself.$ph.empty();
+        
+        myself.templateEngine.reset();
+        myself.panelEngine.reset();
+        myself.keybindEngine.reset();
+        
+        myself.templateEngine.start();
+        myself.transitionEngine.start();
+        myself.panelEngine.start();
+
+        // Bind keys
+        myself.keybindEngine.listKeybinds().map(function(keybind){
+            keybind.bind();
+            
+        });         
+    }
+    
+    
     myself.getRegistry = function(){
         
         return registry;

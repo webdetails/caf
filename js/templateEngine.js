@@ -62,6 +62,11 @@ wd.caf.modules.templateEngine =  function(myself, spec) {
         
     }
     
+    impl.reset = function () {
+        template = undefined;
+        
+    }
+    
     
     
     

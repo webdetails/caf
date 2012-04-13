@@ -435,6 +435,36 @@
 
 
 
+
+     /**
+     * Resets a modules
+     * @memberof wd.caf.registry
+     * @param {string} Module name
+     */
+        myself.resetModule = function(module){
+            if (_registry && _registry[module] ){
+                _registry[module] = {};
+            }
+        }
+        
+        
+           /**
+     * Resets a modules
+     * @memberof wd.caf.registry
+     * @param {string} Module name
+     */
+        myself.resetPanels = function(){
+            myself.resetModule('panels');
+        }
+
+
+
+
+
+
+
+
+
         return myself;
 
 

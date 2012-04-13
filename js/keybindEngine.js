@@ -37,6 +37,10 @@ wd.caf.modules.keybindEngine =  function(myself, spec) {
         return keybinds;
 
     }
+    
+    impl.reset = function (){
+        keybinds = undefined;
+    }
 
 
 
