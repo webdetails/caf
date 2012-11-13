@@ -37,6 +37,31 @@
                 <dt>additional specs</dt><dd>name: name of the panel to switch to.  </dd>
                 </dl>
                 
+                
+                <textarea id="testingStuffUp">
+wd.caf.impl.keybinds.sampleKeybind = function(spec){
+    
+    var _spec = {
+        name: "genericPanelKeybind",
+        description: "Generic Panel Keybind"
+    };
+
+
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.keybind(spec);
+
+    myself.executeKeybind = spec.executeKeybind || function(){
+        
+        myself.log("Calling execution for keybind " + myself.getName());
+        myself.caf.panelEngine.getPanel(spec.name).select();
+        
+    }
+    
+    return myself;
+    
+}                   
+                </textarea>
+            
 
             
             

@@ -21,3 +21,66 @@ var application = wd.caf.application({
     template:'default', 
     transition: "basic"
 });
+
+
+wd.caf.impl.components.tryMe = function(spec) {
+
+
+    /**
+     * Specific specs
+     */
+    
+    var _spec = {
+        name: "appItem",
+        type: "appItem",
+        order: 100,
+        description: "override description"
+    };
+
+    spec = $.extend({},_spec,spec);
+    var myself = wd.caf.component(spec);
+    
+    
+    /**
+     * Describes this interface
+     * @name panel.getOverrides
+     * @memberof wd.caf.panel
+     */
+    myself.getOverrides = function(){
+        return {
+            "spec": _spec,
+            "init": "Init function",
+            "description": "Logo placeholder",
+            "draw($ph)": "Draw the application icon on the specified place"
+        }
+    }
+        
+    
+    /**
+     * Draws the panel
+     * @name panel.draw
+     * @memberof wd.caf.panel
+     */
+    myself.draw = spec.draw || function($ph){
+        
+        var container = $('<div/>').addClass("tryMeContainer").insertAfter($ph),
+            textArea  = $ph.addClass("tryMeTextArea").appendTo(container),
+            button    = $('<div/>').addClass("tryMeButton").appendTo(container);
+             
+        button.text('tryMe');
+        button.click( function (e) {
+            try{
+                eval( textArea.val());
+            }
+            catch(e){
+                alert("Error: " + e);
+            }  
+        });
+    
+    }
+    
+
+
+    
+    return myself;
+}
