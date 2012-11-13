@@ -251,6 +251,17 @@
         }
 
 
+         /**
+     * Removes a panel from the current registry. Shortcut for removeEntity("panels", panel)
+     * @memberof wd.caf.registry
+     * @param {string} panel 
+     */
+    
+        myself.removePanel = function(panel){
+            return myself.removeEntity("panels", panel)
+        };
+
+
         /**
      * Returns a panel from the registry
      * @memberof wd.caf.registry
