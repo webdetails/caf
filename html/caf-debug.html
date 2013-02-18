@@ -72,6 +72,11 @@
                 setTimeout( function(){
                     $("pre.js").snippet("javascript",{style:"matlab",transparent:true,showNum:false});
                 }, 100);
+                
+                var tryMeBuilder = wd.caf.impl.components.tryMe();
+                $('textarea').each( function() {
+                    tryMeBuilder.draw($(this));
+                })
             });
             
         </script>
